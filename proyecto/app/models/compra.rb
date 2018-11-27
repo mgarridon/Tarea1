@@ -1,3 +1,3 @@
 class Compra < ApplicationRecord
-  belongs_to :proveedor
+  has_many :proveedor
 end

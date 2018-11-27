@@ -1,4 +1,4 @@
 class Inventario < ApplicationRecord
-  belongs_to :compra
-  belongs_to :producto
+  has_many :producto
+  has_many :compra
 end

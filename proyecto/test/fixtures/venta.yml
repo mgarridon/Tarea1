@@ -1,6 +1,8 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+  empleado: one
+  cliente: one
   cantidad: 1
   subtotal: 1
   descuento: 1
@@ -8,6 +10,8 @@ one:
   total: 1
 
 two:
+  empleado: two
+  cliente: two
   cantidad: 1
   subtotal: 1
   descuento: 1

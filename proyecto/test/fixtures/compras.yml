@@ -1,6 +1,7 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+  proveedor: one
   fecha: 1
   cantidad: 1
   subtotal: 1
@@ -9,6 +10,7 @@ one:
   total: 1
 
 two:
+  proveedor: two
   fecha: 1
   cantidad: 1
   subtotal: 1
