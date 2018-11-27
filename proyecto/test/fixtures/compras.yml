@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  fecha: 1
+  cantidad: 1
+  subtotal: 1
+  impuesto: 1
+  descuento: 1
+  total: 1
+
+two:
+  fecha: 1
+  cantidad: 1
+  subtotal: 1
+  impuesto: 1
+  descuento: 1
+  total: 1

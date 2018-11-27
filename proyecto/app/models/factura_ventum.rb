@@ -1,0 +1,2 @@
+class FacturaVentum < ApplicationRecord
+end
