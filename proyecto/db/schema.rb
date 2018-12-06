@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_06_014140) do
+ActiveRecord::Schema.define(version: 2018_12_06_015457) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,9 +59,9 @@ ActiveRecord::Schema.define(version: 2018_12_06_014140) do
   create_table "factura_venta", force: :cascade do |t|
     t.bigint "venta_id"
     t.integer "num_empleado"
-    t.string "total_factura_integer"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "total_factura"
     t.index ["venta_id"], name: "index_factura_venta_on_venta_id"
   end
 
