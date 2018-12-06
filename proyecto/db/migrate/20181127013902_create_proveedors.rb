@@ -5,7 +5,6 @@ class CreateProveedors < ActiveRecord::Migration[5.2]
       t.string :apellido
       t.string :direccion
       t.integer :telefono
-      t.integer :telefono
       t.integer :celular
       t.string :nombre_empresa
       t.string :nombre_producto
