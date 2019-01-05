@@ -1,0 +1,98 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css">
+<%= form_for(@asignacion, :html => { class: 'form_dark' })  do |f|%>
+  <div class="right_col" role="main">
+      <div class="row">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="x_panel">
+
+              <div class="x_content">
+                <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+                <script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script>
+                <% if @asignacion.errors.any? %>
+                  <div class="alert alert-danger">
+                    <a class="close" data-dismiss="alert"> × </a>
+                    <Strong><%= pluralize(@asignacion.errors.count, "Error") %></Strong>
+                    <% @asignacion.errors.full_messages.each do |error| %>
+                      <li>Error! <%= error %></li>
+                    <% end %>
+                <% end %>
+                </div>
+                <div class="container">
+                  <div class="row">
+
+
+                    <div class="container">
+                      <div class="row">
+
+                        <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+                          <div class="form-group"></div>
+                          <label for=bus> Conductor</label>
+
+                          <%= f.select :id_chofer, options_from_collection_for_select(@chofer, "id", "rut"), {}, {class: " selectpicker form-control " ,  data: { live_search: 'true' } , :required => true }    %>
+                        </div>
+                        <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+                          <div class="form-group"></div>
+                          <label for=conductor>Numero de Maquina</label>
+
+                          <%= f.select :id_bus, options_from_collection_for_select(@bus, "id", "num_maquina"), {}, {class: " selectpicker form-control " ,  data: { live_search: 'true' } , :required => true }  %>
+
+                        </div>
+                        <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+                          <div class="form-group"></div>
+                          <label for=Empresa>Empresa</label>
+                          <%= f.select :id_empresa, options_from_collection_for_select(@empresa, "id", "nombre"), {}, {class: " selectpicker form-control " ,  data: { live_search: 'true' } ,:required => true }  %>
+                        </div>
+                        <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+                          <div class="form-group"></div>
+                          <label for=ruta> Ruta</label>
+                          <%= f.select :id_ruta, options_from_collection_for_select(@ruta, "id", "descripcion"), {}, {class: " selectpicker form-control " ,  data: { live_search: 'true' }, :required => true }  %>
+                        </div>
+                        <div class="col-lg-6 col-sm-12 col-md-12 col-xs-12">
+                          <div class="form-group"></div>
+                          <label for=horario>Horario</label>
+                          <%= f.select :id_horario, options_from_collection_for_select(@horario, "id", "hora_inicio"), {}, {class: " selectpicker form-control " ,  data: { live_search: 'true' }, :required => true}  %>
+                        </div>
+                        <div class="col-lg-12 col-sm-6 col-md-6 col-xs-12">
+                          <div class="form-group"></div>
+                          <%= f.submit "Guardar" , class:'btn btn-primary' %>
+                          <%= link_to 'Atrás', asignaciones_path , class:'btn btn-danger' %>
+                        </div>
+
+
+
+                      </div>
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+
+              </div>
+            </div>
+
+
+
+            <!-- /.modal-dialog -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+<%end%>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>
+
+<!-- (Optional) Latest compiled and minified JavaScript translation files -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/i18n/defaults-*.min.js"></script>
+
