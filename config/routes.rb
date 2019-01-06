@@ -137,6 +137,21 @@ Rails.application.routes.draw do
       # Eliminar
       delete 'clientes.:id' , to: 'clientes#eliminar'
 
+      #CRUD EMPLEADOS
+      # Index
+      get 'empleados/' , to: 'empleados#index', as: 'empleados'
+      # Editar
+      get 'empleados/:id/clientes', to: 'empleados#editar', as: 'editar_empleado'
+      put 'empleados/:id', to: 'empleados#update', action: :update
+      patch 'empleados/:id', to: 'empleados#update', as:'update_empleado',action: :update
+      # Nuevo
+      get 'empleados/nuevo' , to: 'empleados#nuevo', as: 'nuevo_empleado'
+      post 'empleados/', to: 'empleados#crear', as: 'crear_empleado'
+      # Mostrar
+      get 'empleados/:id', to: 'empleados#mostrar', as: 'empleado'
+      # Eliminar
+      delete 'empleados.:id' , to: 'empleados#eliminar'
+
 
       #CRUD COMPRAS
       # Index

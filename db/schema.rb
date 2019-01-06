@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190106033734) do
+ActiveRecord::Schema.define(version: 20190106225254) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -79,6 +79,18 @@ ActiveRecord::Schema.define(version: 20190106033734) do
     t.integer "impuesto"
     t.integer "total"
     t.integer "id_proveedor"
+    t.integer "id_producto"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "empleados", force: :cascade do |t|
+    t.string "rut"
+    t.string "nombre"
+    t.string "apellido"
+    t.integer "edad"
+    t.string "direccion"
+    t.integer "telefono"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -131,6 +143,15 @@ ActiveRecord::Schema.define(version: 20190106033734) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "stocks", force: :cascade do |t|
+    t.date "fecha_vencimiento"
+    t.integer "id_compra"
+    t.integer "id_producto"
+    t.integer "id_venta"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -151,13 +172,25 @@ ActiveRecord::Schema.define(version: 20190106033734) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "ventas", force: :cascade do |t|
+    t.date "fecha"
+    t.integer "cantidad"
+    t.integer "subtotal"
+    t.integer "impuesto"
+    t.integer "total"
+    t.integer "id_cliente"
+    t.integer "id_empleado"
+    t.integer "id_producto"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   add_foreign_key "asignaciones", "buses", column: "id_bus"
   add_foreign_key "asignaciones", "choferes", column: "id_chofer"
   add_foreign_key "asignaciones", "empresas", column: "id_empresa"
   add_foreign_key "asignaciones", "horarios", column: "id_horario"
   add_foreign_key "asignaciones", "rutas", column: "id_ruta"
   add_foreign_key "buses", "categoria_buses", column: "id_categoria"
-  add_foreign_key "compras", "proveedores", column: "id_proveedor"
   add_foreign_key "empresas", "rutas", column: "id_ruta"
   add_foreign_key "productos", "categorias", column: "id_categoria"
   add_foreign_key "rutas", "empresas", column: "id_empresa"

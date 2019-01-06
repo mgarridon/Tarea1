@@ -1,23 +1,23 @@
-<%= form_for(@cliente, :url => clientes_path ,:html => {:role => 'form'}) do |f| %>
+<%= form_for(@empleado, :url => empleados_path ,:html => {:role => 'form'}) do |f| %>
 
-<div class="right_col" role="main">
-  <div class="row">
+  <div class="right_col" role="main">
     <div class="row">
-      <div class="col-md-12">
-        <div class="x_panel">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="x_panel">
 
-          <div class="x_content">
-            <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-            <script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script>
-            <% if @cliente.errors.any? %>
-              <div class="alert alert-danger">
-                <a class="close" data-dismiss="alert"> × </a>
-                <Strong><%= pluralize(@cliente.errors.count, "Error") %></Strong>
-                <% @cliente.errors.full_messages.each do |error| %>
-                  <li>Error! <%= error %></li>
-                <% end %>
-            <% end %>
-            </div>
+            <div class="x_content">
+              <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+              <script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script>
+              <% if @empleado.errors.any? %>
+                <div class="alert alert-danger">
+                  <a class="close" data-dismiss="alert"> × </a>
+                  <Strong><%= pluralize(@empleado.errors.count, "Error") %></Strong>
+                  <% @empleado.errors.full_messages.each do |error| %>
+                    <li>Error! <%= error %></li>
+                  <% end %>
+              <% end %>
+              </div>
               <div class="container">
                 <div class="row">
 
@@ -43,6 +43,11 @@
                       </div>
                       <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
                         <div class="form-group"></div>
+                        <label for=edad>Edad : </label>
+                        <%= f.text_field :edad, :required => "true", class: 'form-control' %>
+                      </div>
+                      <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+                        <div class="form-group"></div>
                         <label for=direccion>Direccion : </label>
                         <%= f.text_field :direccion ,:required => "true" ,class:'form-control'%>
                       </div>
@@ -55,7 +60,7 @@
                       <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
                         <div class="form-group"></div>
                         <%= f.submit "Guardar" , class:'btn btn-primary' %>
-                        <%= link_to 'Atrás', clientes_path , class:'btn btn-danger' %>
+                        <%= link_to 'Atrás', empleados_path , class:'btn btn-danger' %>
                       </div>
 
 
@@ -70,16 +75,16 @@
               </div>
 
 
+            </div>
           </div>
+
+
+
+          <!-- /.modal-dialog -->
         </div>
-
-
-
-        <!-- /.modal-dialog -->
       </div>
     </div>
   </div>
-</div>
 
 <% end %>
 <script>
@@ -90,3 +95,4 @@
     });
 </script>
 <script src="validarRUT.js"></script>
+

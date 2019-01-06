@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  fecha_vencimiento: 2019-01-06
+  id_compra: 1
+  id_producto: 1
+  id_venta: 1
+
+two:
+  fecha_vencimiento: 2019-01-06
+  id_compra: 1
+  id_producto: 1
+  id_venta: 1

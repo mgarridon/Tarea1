@@ -2,41 +2,38 @@
 <!-- Main content -->
 <div class="box">
   <div class="box-header">
-    <h3 class="box-title">Listado Productos
-      <%= link_to 'Agregar Producto', nuevo_producto_path,:class =>'btn bg-olive margin' %></h3>
-    <select name="post[categoria_id]" id="categoria_id">
-      <option value="">Elija un Proveedor</option>
-      <% Proveedor.all.each do |r| %>
-        <option value="<%= r.id %>"><%= r.nombre_empresa %></option>
-      <% end %>
-    </select>
+    <h3 class="box-title">Listado Empleados
+      <%= link_to 'Agregar Empleado', nuevo_empleado_path,:class =>'btn bg-olive margin' %></h3>
   </div>
-
   <!-- /.box-header -->
   <div class="box-body">
     <div class="table-responsive">
       <table id="example1" class="table table-bordered table-striped">
         <thead>
         <tr>
+          <th>Rut</th>
           <th>Nombre</th>
-          <th>Precio</th>
-          <th>Marca</th>
-          <th>Descripcion</th>
+          <th>Apellido</th>
+          <th>Edad</th>
+          <th>Direccion</th>
+          <th>Telefono</th>
           <th>Mostrar</th>
           <th>Editar</th>
           <th>Borrar</th>
         </tr>
         </thead>
         <tbody>
-        <% @producto.each do |actual| %>
+        <% @empleado.each do |actual| %>
             <tr>
-              <td><%= actual.nombre%></td>
-              <td><%= actual.precio %></td>
-              <td><%= actual.marca %></td>
-              <td><%= actual.descripcion%></td>
-              <td><%= link_to '<i class="glyphicon glyphicon-book"></i>'.html_safe,  producto_path(actual), class: 'btn btn-success' %></td>
-              <td><%= link_to '<i class="glyphicon glyphicon-pencil"></i>'.html_safe,  editar_producto_path(actual), class: 'btn btn-info' %></td>
-              <td><%= link_to '<i class="glyphicon glyphicon-trash"></i>'.html_safe, productos_path(actual), method: :delete, data: { confirm: '¿Está seguro?' }, class: 'btn btn-danger' %></td>
+              <td><%= actual.rut %></td>
+              <td><%= actual.nombre %></td>
+              <td><%= actual.apellido %></td>
+              <td><%= actual.edad %></td>
+              <td><%= actual.direccion %></td>
+              <td><%= actual.telefono %></td>
+              <td><%= link_to '<i class="glyphicon glyphicon-book"></i>'.html_safe,  empleado_path(actual), class: 'btn btn-success' %></td>
+              <td><%= link_to '<i class="glyphicon glyphicon-pencil"></i>'.html_safe,  editar_empleado_path(actual), class: 'btn btn-info' %></td>
+              <td><%= link_to '<i class="glyphicon glyphicon-trash"></i>'.html_safe, empleados_path(actual), method: :delete, data: { confirm: '¿Está seguro?' }, class: 'btn btn-danger' %></td>
 
             </tr>
         <%end%>

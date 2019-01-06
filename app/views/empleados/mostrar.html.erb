@@ -1,0 +1,84 @@
+<div class="box">
+  <div class="box-header">
+    <h1 class="box-title">Mostrar Empleado</h1>
+    <div class="right_col" role="main">
+      <div class="row">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="x_panel">
+
+
+              <div class="x_content">
+                <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+                <script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script>
+
+                <div class="container">
+                  <div class="row">
+
+
+                    <div class="container">
+                      <div class="row">
+
+                        <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+                          <div class="form-group"></div>
+                          <label for=rut>Rut : </label>
+                          <%= @empleado.rut %>
+                        </div>
+                        <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+                          <div class="form-group"></div>
+                          <label for=nombre>Nombre : </label>
+                          <%= @empleado.nombre %>
+                        </div>
+                        <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+                          <div class="form-group"></div>
+                          <label for=apellido>Apellido : </label>
+                          <%= @empleado.apellido %>
+                        </div>
+                        <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+                          <div class="form-group"></div>
+                          <label for=edad>Edad : </label>
+                          <%= @empleado.edad %>
+                        </div>
+                        <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+                          <div class="form-group"></div>
+                          <label for=direccion>Direccion : </label>
+                          <%= @empleado.direccion %>
+                        </div>
+                        <div class="col-lg-12 col-sm-12 col-md-12 col-xs-12">
+                          <div class="form-group"></div>
+                          <label for=telefono>Telefono : </label>
+                          <%= @empleado.telefono %>
+                        </div>
+
+
+                        <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+                          <div class="form-group"></div>
+
+                          <%= link_to 'Atrás', empleados_path , class:'btn btn-danger' %>
+                        </div>
+
+
+
+
+                      </div>
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+
+              </div>
+            </div>
+
+
+
+            <!-- /.modal-dialog -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

@@ -7,7 +7,5 @@ class AgregarLlavesForaneas < ActiveRecord::Migration[5.1]
     add_foreign_key :asignaciones, :choferes, column: :id_chofer, primary_key: :id
     add_foreign_key :asignaciones, :buses, column: :id_bus, primary_key: :id
     add_foreign_key :asignaciones, :empresas, column: :id_empresa, primary_key: :id
-    add_foreign_key :productos, :categorias, column: :id_categoria, primary_key: :id
-    add_foreign_key :compras, :proveedores, column: :id_proveedor, primary_key: :id
   end
 end
