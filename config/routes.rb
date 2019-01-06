@@ -106,7 +106,7 @@ Rails.application.routes.draw do
       # Eliminar
       delete 'productos.:id' , to: 'productos#eliminar'
 
-          #CRUD choferes
+      #CRUD choferes
       # Index
       get 'choferes/' , to: 'choferes#index', as: 'choferes'
       # Editar
@@ -120,6 +120,22 @@ Rails.application.routes.draw do
       get 'choferes/:id', to: 'choferes#mostrar', as: 'chofer'
       # Eliminar
       delete 'choferes.:id' , to: 'choferes#eliminar'
+
+
+      #CRUD CLIENTES
+      # Index
+      get 'clientes/' , to: 'clientes#index', as: 'clientes'
+      # Editar
+      get 'clientes/:id/clientes', to: 'clientes#editar', as: 'editar_cliente'
+      put 'clientes/:id', to: 'clientes#update', action: :update
+      patch 'clientes/:id', to: 'clientes#update', as:'update_cliente',action: :update
+      # Nuevo
+      get 'clientes/nuevo' , to: 'clientes#nuevo', as: 'nuevo_cliente'
+      post 'clientes/', to: 'clientes#crear', as: 'crear_cliente'
+      # Mostrar
+      get 'clientes/:id', to: 'clientes#mostrar', as: 'cliente'
+      # Eliminar
+      delete 'clientes.:id' , to: 'clientes#eliminar'
 
 
       #CRUD COMPRAS
