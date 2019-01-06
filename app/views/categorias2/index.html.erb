@@ -15,8 +15,8 @@
               <thead>
               <tr>
                 <th>ID</th>
-                <th>Descripcion Categoria 2</th>
                 <th>Nombre Categoria 2</th>
+                <th>Descripcion Categoria 2</th>
                 <th>Mostrar1</th>
                 <th>Editar1</th>
                 <th>Borrar1</th>
@@ -26,8 +26,8 @@
               <% @categoria.each do |actual| %>
                   <tr>
                     <td><%= actual.id%></td>
-                    <td><%= actual.descripcion %></td>
                     <td><%= actual.nombre %></td>
+                    <td><%= actual.descripcion %></td>
                     <td><%= link_to '<i class="glyphicon glyphicon-book"></i>'.html_safe,  categoria2_path(actual), class: 'btn btn-success' %></td>
                     <td><%= link_to '<i class="glyphicon glyphicon-pencil"></i>'.html_safe,  editar_categoria2_path(actual), class: 'btn btn-info' %></td>
                     <td><%= link_to '<i class="glyphicon glyphicon-trash"></i>'.html_safe, categorias2_path(actual), method: :delete, data: { confirm: '¿Está seguro?' }, class: 'btn btn-danger' %></td>

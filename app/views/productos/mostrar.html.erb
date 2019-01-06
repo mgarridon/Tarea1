@@ -1,32 +1,21 @@
 <p>
-  <strong>N° Maquina</strong>
-  <%= @bus.num_maquina %>
+  <strong>Nombre : </strong>
+  <%= @producto.nombre %>
 </p>
 <p>
-  <strong>Patente</strong>
-  <%= @bus.placa_patente %>
+  <strong>Precio : </strong>
+  <%= @producto.precio %>
 </p>
 <p>
-<strong>Año Vehiculo:</strong>
-<%= @bus.anio_vehiculo %>
+<strong>Marca : </strong>
+<%= @producto.marca %>
 </p>
 <p>
-  <strong>Marca : </strong>
-  <%= @bus.marca %>
+  <strong>Descripcion : </strong>
+  <%= @producto.descripcion%>
 </p>
 <p>
-  <strong>Carroceria : </strong>
-  <%= @bus.carroceria %>
+  <strong>Categoria : </strong>
+  <%= @producto.id_categoria %>
 </p>
-<p>
-  <strong>N° Motor:</strong>
-  <%= @bus.numero_motor %>
-</p>
-<p>
-  <strong>N° Chasis:</strong>
-  <%= @bus.numero_chasis %>
-</p>
-<p>
-  <strong>categoria:</strong>
-  <%= @bus.id_categoria %>
-</p>
+<%= link_to 'Atrás', productos_path , class:'btn btn-danger' %>

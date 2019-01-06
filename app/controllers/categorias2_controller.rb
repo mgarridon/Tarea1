@@ -1,5 +1,5 @@
 class Categorias2Controller < ApplicationController
-  before_action :set_categoria, only: [:editar,:update, :mostrar, :eliminar]
+  before_action :set_categoria2, only: [:editar,:update, :mostrar, :eliminar]
 
   def index
     @categoria = Categoria.all
@@ -59,7 +59,7 @@ class Categorias2Controller < ApplicationController
 
   private
   # Inicializar categoria
-  def set_categoria
+  def set_categoria2
     @categoria = Categoria.find(params[:id])
   end
   # Establecer Parametros

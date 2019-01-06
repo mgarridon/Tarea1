@@ -90,6 +90,22 @@ Rails.application.routes.draw do
       # Eliminar
       delete 'buses.:id' , to: 'buses#eliminar'
 
+      #CRUD PRODUCTOS
+      # Index
+      get 'productos' , to: 'productos#index',as: 'productos'
+      # Editar
+      get 'productos/:id/editar', to: 'productos#editar', as: 'editar_producto'
+      put 'productos/:id', to: 'productos#update'
+      patch 'productos/:id', to: 'productos#update'
+
+      # Nuevo
+      post 'productos', to: 'productos#crear'
+      get 'productos/nuevo' , to: 'productos#nuevo', as: 'nuevo_producto'
+      # Mostrar
+      get 'productos/:id', to: 'productos#mostrar', as: 'producto'
+      # Eliminar
+      delete 'productos.:id' , to: 'productos#eliminar'
+
           #CRUD choferes
       # Index
       get 'choferes/' , to: 'choferes#index', as: 'choferes'
@@ -104,6 +120,37 @@ Rails.application.routes.draw do
       get 'choferes/:id', to: 'choferes#mostrar', as: 'chofer'
       # Eliminar
       delete 'choferes.:id' , to: 'choferes#eliminar'
+
+
+      #CRUD COMPRAS
+      # Index
+      get 'compras/' , to: 'compras#index', as: 'compras'
+      # Editar
+      get 'compras/:id/editar', to: 'compras#editar', as: 'editar_compra'
+      put 'compras/:id', to: 'compras#update', action: :update
+      patch 'compras/:id', to: 'compras#update', as:'update_compra',action: :update
+      # Nuevo
+      get 'compras/nuevo' , to: 'compras#nuevo', as: 'nueva_compra'
+      post 'compras/', to: 'compras#crear', as: 'crear_compra'
+      # Mostrar
+      get 'compras/:id', to: 'compras#mostrar', as: 'compra'
+      # Eliminar
+      delete 'compras.:id' , to: 'compras#eliminar'
+
+      #CRUD proveedores
+      # Index
+      get 'proveedores/' , to: 'proveedores#index', as: 'proveedores'
+      # Editar
+      get 'proveedores/:id/editar', to: 'proveedores#editar', as: 'editar_proveedor'
+      put 'proveedores/:id', to: 'proveedores#update', action: :update
+      patch 'proveedores/:id', to: 'proveedores#update', as:'update_proveedor',action: :update
+      # Nuevo
+      get 'proveedores/nuevo' , to: 'proveedores#nuevo', as: 'nuevo_proveedor'
+      post 'proveedores/', to: 'proveedores#crear', as: 'crear_proveedor'
+      # Mostrar
+      get 'proveedores/:id', to: 'proveedores#mostrar', as: 'proveedor'
+      # Eliminar
+      delete 'proveedores.:id' , to: 'proveedores#eliminar'
 
           #CRUD empresas
           # Index

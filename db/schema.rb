@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190105032440) do
+ActiveRecord::Schema.define(version: 20190105194550) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -62,6 +62,17 @@ ActiveRecord::Schema.define(version: 20190105032440) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "compras", force: :cascade do |t|
+    t.date "fecha"
+    t.integer "cantidad"
+    t.integer "subtotal"
+    t.integer "impuesto"
+    t.integer "total"
+    t.integer "id_proveedor"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "empresas", force: :cascade do |t|
     t.string "nombre"
     t.string "rut"
@@ -84,10 +95,21 @@ ActiveRecord::Schema.define(version: 20190105032440) do
     t.integer "precio"
     t.string "marca"
     t.string "descripcion"
-    t.bigint "categoria_id"
+    t.integer "id_categoria"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["categoria_id"], name: "index_productos_on_categoria_id"
+  end
+
+  create_table "proveedores", force: :cascade do |t|
+    t.string "nombre"
+    t.string "apellido"
+    t.string "direccion"
+    t.integer "telefono"
+    t.integer "celular"
+    t.string "nombre_empresa"
+    t.string "nombre_producto"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "rutas", force: :cascade do |t|
@@ -125,8 +147,9 @@ ActiveRecord::Schema.define(version: 20190105032440) do
   add_foreign_key "asignaciones", "horarios", column: "id_horario"
   add_foreign_key "asignaciones", "rutas", column: "id_ruta"
   add_foreign_key "buses", "categoria_buses", column: "id_categoria"
+  add_foreign_key "compras", "proveedores", column: "id_proveedor"
   add_foreign_key "empresas", "rutas", column: "id_ruta"
-  add_foreign_key "productos", "categorias"
+  add_foreign_key "productos", "categorias", column: "id_categoria"
   add_foreign_key "rutas", "empresas", column: "id_empresa"
   add_foreign_key "rutas", "horarios", column: "id_horario"
 end

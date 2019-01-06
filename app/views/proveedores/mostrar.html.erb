@@ -1,62 +1,70 @@
-
-<%= form_for(@producto, :html => { class: 'form_dark' })  do |f|%>
-
+<div class="box">
+  <div class="box-header">
+    <h1 class="box-title">Mostrar Proveedor</h1>
     <div class="right_col" role="main">
       <div class="row">
         <div class="row">
           <div class="col-md-12">
             <div class="x_panel">
 
+
               <div class="x_content">
                 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
                 <script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script>
-                <% if @producto.errors.any? %>
-                  <div class="alert alert-danger">
-                    <a class="close" data-dismiss="alert"> × </a>
-                    <Strong><%= pluralize(@producto.errors.count, "Error") %></Strong>
-                    <% @producto.errors.full_messages.each do |error| %>
-                      <li>Error! <%= error %></li>
-                    <% end %>
-                <% end %>
-                </div>
+
                 <div class="container">
                   <div class="row">
 
 
                     <div class="container">
                       <div class="row">
+                        <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+                          <div class="form-group"></div>
+                          <label for=id>ID : </label>
+                          <%= @proveedor.id %>
+                        </div>
+                        <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+                          <div class="form-group"></div>
+                          <label for=nombre>Nombre : </label>
+                          <%= @proveedor.nombre %>
+                        </div>
+                        <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+                          <div class="form-group"></div>
+                          <label for=apellido>Apellido : </label>
+                          <%= @proveedor.apellido %>
+                        </div>
+                        <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+                          <div class="form-group"></div>
+                          <label for=direccion>Direccion : </label>
+                          <%= @proveedor.direccion %>
+                        </div>
+                        <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+                          <div class="form-group"></div>
+                          <label for=telefono>Telefono : </label>
+                          <%= @proveedor.telefono %>
+                        </div>
+                        <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+                          <div class="form-group"></div>
+                          <label for=celular>Celular : </label>
+                          <%= @proveedor.celular %>
+                        </div>
+                        <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+                          <div class="form-group"></div>
+                          <label for=apellidomate>Nombre Empresa : </label>
+                          <%= @proveedor.nombre_empresa %>
+                        </div>
+                        <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+                          <div class="form-group"></div>
+                          <label for=apellidomate>Nombre Producto : </label>
+                          <%= @proveedor.nombre_producto %>
+                        </div>
 
                         <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
                           <div class="form-group"></div>
-                          <label for=nombre>Nombre</label>
-                          <%=f.text_field :nombre ,:required => "true", class:'form-control' %>
-                        </div>
-                        <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
-                          <div class="form-group"></div>
-                          <label for=precio>Precio</label>
-                          <%=f.text_field :precio ,:required => "true", class:'form-control' %>
-                        </div>
-                        <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
-                          <div class="form-group"></div>
-                          <label for=marca>Marca</label>
-                          <%= f.text_field :marca, :required => "true", class: 'form-control' %>
-                        </div>
-                        <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
-                          <div class="form-group"></div>
-                          <label for=descripcion>Descripcion</label>
-                          <%=f.text_field :descripcion ,:required => "true",  class:'form-control' %>
-                        </div>
-                        <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
-                          <div class="form-group"></div>
-                          <label for=categoria>Categoria</label>
-                          <%= f.select :id_categoria, options_from_collection_for_select(@categorias, "id", "nombre"), {}, {class: " selectpicker form-control " ,  data: { live_search: 'true' } }%>
+
+                          <%= link_to 'Atrás', proveedores_path , class:'btn btn-danger' %>
                         </div>
 
-                        <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
-                          <div class="form-group"></div>
-                          <%= f.submit "Guardar" , class:'btn btn-primary' %>
-                          <%= link_to 'Atrás', productos_path , class:'btn btn-danger' %>
-                        </div>
 
 
 
@@ -79,13 +87,6 @@
         </div>
       </div>
     </div>
+  </div>
+</div>
 
-
-
-
-
-
-
-
-
-<%end%>

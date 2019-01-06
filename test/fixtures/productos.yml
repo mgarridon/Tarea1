@@ -5,11 +5,11 @@ one:
   precio: 1
   marca: MyString
   descripcion: MyString
-  categoria: one
+  id_categoria: 1
 
 two:
   nombre: MyString
   precio: 1
   marca: MyString
   descripcion: MyString
-  categoria: two
+  id_categoria: 1

@@ -2,8 +2,8 @@
 <!-- Main content -->
 <div class="box">
   <div class="box-header">
-    <h3 class="box-title">Listado Productos
-      <%= link_to 'Agregar Producto', nuevo_producto_path,:class =>'btn bg-olive margin' %></h3>
+    <h3 class="box-title">Listado Proveedores
+      <%= link_to 'Agregar Proveedor', nuevo_proveedor_path,:class =>'btn bg-olive margin' %></h3>
   </div>
   <!-- /.box-header -->
   <div class="box-body">
@@ -11,25 +11,27 @@
       <table id="example1" class="table table-bordered table-striped">
         <thead>
         <tr>
+          <th>ID</th>
           <th>Nombre</th>
-          <th>Precio</th>
-          <th>Marca</th>
-          <th>Descripcion</th>
+          <th>Apellido</th>
+          <th>Empresa</th>
+          <th>Producto</th>
           <th>Mostrar</th>
           <th>Editar</th>
           <th>Borrar</th>
         </tr>
         </thead>
         <tbody>
-        <% @producto.each do |actual| %>
+        <% @proveedor.each do |actual| %>
             <tr>
-              <td><%= actual.nombre%></td>
-              <td><%= actual.precio %></td>
-              <td><%= actual.marca %></td>
-              <td><%= actual.descripcion%></td>
-              <td><%= link_to '<i class="glyphicon glyphicon-book"></i>'.html_safe,  producto_path(actual), class: 'btn btn-success' %></td>
-              <td><%= link_to '<i class="glyphicon glyphicon-pencil"></i>'.html_safe,  editar_producto_path(actual), class: 'btn btn-info' %></td>
-              <td><%= link_to '<i class="glyphicon glyphicon-trash"></i>'.html_safe, productos_path(actual), method: :delete, data: { confirm: '¿Está seguro?' }, class: 'btn btn-danger' %></td>
+              <td><%= actual.id%></td>
+              <td><%= actual.nombre %></td>
+              <td><%= actual.apellido %></td>
+              <td><%= actual.nombre_empresa %></td>
+              <td><%= actual.nombre_producto %></td>
+              <td><%= link_to '<i class="glyphicon glyphicon-book"></i>'.html_safe,  proveedor_path(actual), class: 'btn btn-success' %></td>
+              <td><%= link_to '<i class="glyphicon glyphicon-pencil"></i>'.html_safe,  editar_proveedor_path(actual), class: 'btn btn-info' %></td>
+              <td><%= link_to '<i class="glyphicon glyphicon-trash"></i>'.html_safe, proveedores_path(actual), method: :delete, data: { confirm: '¿Está seguro?' }, class: 'btn btn-danger' %></td>
 
             </tr>
         <%end%>
