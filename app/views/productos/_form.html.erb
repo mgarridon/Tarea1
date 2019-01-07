@@ -33,7 +33,12 @@
                         </div>
                         <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
                           <div class="form-group"></div>
-                          <label for=precio>Precio</label>
+                          <label for=precio>Precio Compra</label>
+                          <%= f.text_field :precio_compra, :required => "true", class: 'form-control' %>
+                        </div>
+                        <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+                          <div class="form-group"></div>
+                          <label for=precio>Precio Venta</label>
                           <%=f.text_field :precio ,:required => "true", class:'form-control' %>
                         </div>
                         <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">

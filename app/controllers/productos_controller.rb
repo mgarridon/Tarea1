@@ -66,6 +66,6 @@ class ProductosController < ApplicationController
   end
   # Establecer Parametros
   def producto_params
-    params.require(:producto).permit(:nombre, :precio, :marca, :descripcion, :id_categoria)
+    params.require(:producto).permit(:nombre, :precio, :precio_compra, :marca, :descripcion, :id_categoria)
   end
 end

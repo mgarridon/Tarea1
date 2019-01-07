@@ -19,7 +19,8 @@
         <thead>
         <tr>
           <th>Nombre</th>
-          <th>Precio</th>
+          <th>Precio Compra</th>
+          <th>Precio Venta</th>
           <th>Marca</th>
           <th>Descripcion</th>
           <th>Mostrar</th>
@@ -31,6 +32,7 @@
         <% @producto.each do |actual| %>
             <tr>
               <td><%= actual.nombre%></td>
+              <td><%= actual.precio_compra %></td>
               <td><%= actual.precio %></td>
               <td><%= actual.marca %></td>
               <td><%= actual.descripcion%></td>

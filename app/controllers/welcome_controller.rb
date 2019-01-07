@@ -1,11 +1,11 @@
 class WelcomeController < ApplicationController
   def index
-    bus = Bus.all.size
-    chofer= Chofer.all.size
-    asignacion = Asignacion.all.size
-    empresa = Empresa.all.size
+    cliente = Cliente.all.size
+    producto= Producto.all.size
+    venta = Venta.all.size
+    proveedor = Proveedor.all.size
 
-    @datos = [bus,chofer,asignacion,empresa]
+    @datos = [cliente,producto,venta,proveedor]
 
   end
 end
