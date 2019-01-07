@@ -15,7 +15,6 @@
           <th>Nombre</th>
           <th>Apellido</th>
           <th>Empresa</th>
-          <th>Producto</th>
           <th>Mostrar</th>
           <th>Editar</th>
           <th>Borrar</th>
@@ -28,7 +27,6 @@
               <td><%= actual.nombre %></td>
               <td><%= actual.apellido %></td>
               <td><%= actual.nombre_empresa %></td>
-              <td><%= actual.nombre_producto %></td>
               <td><%= link_to '<i class="glyphicon glyphicon-book"></i>'.html_safe,  proveedor_path(actual), class: 'btn btn-success' %></td>
               <td><%= link_to '<i class="glyphicon glyphicon-pencil"></i>'.html_safe,  editar_proveedor_path(actual), class: 'btn btn-info' %></td>
               <td><%= link_to '<i class="glyphicon glyphicon-trash"></i>'.html_safe, proveedores_path(actual), method: :delete, data: { confirm: '¿Está seguro?' }, class: 'btn btn-danger' %></td>

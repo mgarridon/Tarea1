@@ -1,21 +1,74 @@
-<p>
-  <strong>Nombre : </strong>
-  <%= @producto.nombre %>
-</p>
-<p>
-  <strong>Precio : </strong>
-  <%= @producto.precio %>
-</p>
-<p>
-<strong>Marca : </strong>
-<%= @producto.marca %>
-</p>
-<p>
-  <strong>Descripcion : </strong>
-  <%= @producto.descripcion%>
-</p>
-<p>
-  <strong>Categoria : </strong>
-  <%= @producto.id_categoria %>
-</p>
-<%= link_to 'Atrás', productos_path , class:'btn btn-danger' %>
+<div class="box">
+  <div class="box-header">
+    <h1 class="box-title">Mostrar Producto</h1>
+    <div class="right_col" role="main">
+      <div class="row">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="x_panel">
+
+
+              <div class="x_content">
+                <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+                <script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script>
+
+                <div class="container">
+                  <div class="row">
+
+
+                    <div class="container">
+                      <div class="row">
+
+                        <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+                          <div class="form-group"></div>
+                          <label for="nombre">Nombre : </label>
+                          <%= @producto.nombre %>
+                        </div>
+                        <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+                          <div class="form-group"></div>
+                          <label for=precio>Precio :</label>
+                          <%= @producto.precio %>
+                        </div>
+                        <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+                          <div class="form-group"></div>
+                          <label for=marca>Marca : </label>
+                          <%= @producto.marca %>
+                        </div>
+                        <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+                          <div class="form-group"></div>
+                          <label for=descripcion>Descripcion : </label>
+                          <%= @producto.descripcion %>
+                        </div>
+                        <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+                          <div class="form-group"></div>
+                          <label for=id_categoria>Id_Categoria : </label>
+                          <%= @producto.id_categoria %>
+                        </div>
+
+                        <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+                          <div class="form-group"></div>
+
+                          <%= link_to 'Atrás', productos_path, class: 'btn btn-danger' %>
+                        </div>
+
+
+                      </div>
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+
+              </div>
+            </div>
+
+
+            <!-- /.modal-dialog -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

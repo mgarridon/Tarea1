@@ -1,23 +1,23 @@
-<%= form_for(@compra, :url => compras_path ,:html => {:role => 'form'}) do |f| %>
+<%= form_for(@venta, :url => ventas_path, :html => {:role => 'form'}) do |f| %>
 
-<div class="right_col" role="main">
-  <div class="row">
+  <div class="right_col" role="main">
     <div class="row">
-      <div class="col-md-12">
-        <div class="x_panel">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="x_panel">
 
-          <div class="x_content">
-            <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-            <script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script>
-            <% if @compra.errors.any? %>
-              <div class="alert alert-danger">
-                <a class="close" data-dismiss="alert"> × </a>
-                <Strong><%= pluralize(@compra.errors.count, "Error") %></Strong>
-                <% @compra.errors.full_messages.each do |error| %>
-                  <li>Error! <%= error %></li>
-                <% end %>
-            <% end %>
-            </div>
+            <div class="x_content">
+              <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+              <script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script>
+              <% if @venta.errors.any? %>
+                <div class="alert alert-danger">
+                  <a class="close" data-dismiss="alert"> × </a>
+                  <Strong><%= pluralize(@venta.errors.count, "Error") %></Strong>
+                  <% @venta.errors.full_messages.each do |error| %>
+                    <li>Error! <%= error %></li>
+                  <% end %>
+              <% end %>
+              </div>
               <div class="container">
                 <div class="row">
 
@@ -27,13 +27,18 @@
 
                       <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
                         <div class="form-group"></div>
-                        <label for=id_proveedor>Proveedor</label>
-                        <%= f.select :id_proveedor, options_from_collection_for_select(@proveedores, "id", "nombre_empresa"), {}, {class: " selectpicker form-control ", data: {live_search: 'true'}} %>
+                        <label for=id_cliente>Id_Cliente</label>
+                        <%= f.select :id_cliente, options_from_collection_for_select(@clientes, "id", "nombre"), {}, {class: " selectpicker form-control ", data: {live_search: 'true'}} %>
                         <span class="help-inline">
                       </div>
                       <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
                         <div class="form-group"></div>
-                        <label for=id_producto>Producto</label>
+                        <label for=id_empleado>Id_Empleado</label>
+                        <%= f.select :id_empleado, options_from_collection_for_select(@empleados, "id", "nombre"), {}, {class: " selectpicker form-control ", data: {live_search: 'true'}} %>
+                      </div>
+                      <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+                        <div class="form-group"></div>
+                        <label for=id_producto>Id_Producto</label>
                         <%= f.select :id_producto, options_from_collection_for_select(@productos, "id", "nombre"), {}, {class: " selectpicker form-control ", data: {live_search: 'true'}} %>
                       </div>
 
@@ -52,13 +57,13 @@
                       <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
                         <div class="form-group"></div>
                         <label for=subtotal>Sub Total</label>
-                        <%= f.text_field :subtotal,:required => "true" , class:'form-control'%>
+                        <%= f.text_field :subtotal, :required => "true", class: 'form-control' %>
 
                       </div>
                       <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
                         <div class="form-group"></div>
                         <label for=impuesto>Impuesto</label>
-                        <%= f.select :impuesto, (values = ['Si', 'No']), {}, {class: " selectpicker form-control " ,  data: { live_search: 'true' },:required => "true" }%>
+                        <%= f.select :impuesto, (values = ['Si', 'No']), {}, {class: " selectpicker form-control ", data: {live_search: 'true'}, :required => "true"} %>
                       </div>
                       <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
                         <div class="form-group"></div>
@@ -69,11 +74,9 @@
 
                       <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
                         <div class="form-group"></div>
-                        <%= f.submit "Guardar" , class:'btn btn-primary' %>
-                        <%= link_to 'Atrás', compras_path , class:'btn btn-danger' %>
+                        <%= f.submit "Guardar", class: 'btn btn-primary' %>
+                        <%= link_to 'Atrás', ventas_path, class: 'btn btn-danger' %>
                       </div>
-
-
 
 
                     </div>
@@ -85,23 +88,20 @@
               </div>
 
 
+            </div>
           </div>
+
+
+          <!-- /.modal-dialog -->
         </div>
-
-
-
-        <!-- /.modal-dialog -->
       </div>
     </div>
   </div>
-</div>
 
 <% end %>
 <script>
-    $(document).ready(function()
-    {
-        $( ".datepicker-input" ).datepicker( "option", "yearRange", "-99:+0" );
-        $( ".datepicker-input" ).datepicker( "option", "maxDate", "+0m +0d" );
+    $(document).ready(function () {
+        $(".datepicker-input").datepicker("option", "yearRange", "-99:+0");
+        $(".datepicker-input").datepicker("option", "maxDate", "+0m +0d");
     });
 </script>
-

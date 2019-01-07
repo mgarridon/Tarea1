@@ -8,9 +8,11 @@ class ComprasController < ApplicationController
   def nuevo
     @compra = Compra.new
     @proveedores = Proveedor.all
+    @productos = Producto.all
   end
   def crear
     @proveedores = Proveedor.all
+    @productos = Producto.all
     @compra=Compra.new(compra_params)
     respond_to do |format|
       if @compra.valid?
@@ -34,6 +36,7 @@ class ComprasController < ApplicationController
   # Actualizar/Editar
   def editar
     @proveedores = Proveedor.all
+    @productos = Producto.all
   end
   def update
     respond_to do |format|
@@ -65,7 +68,7 @@ class ComprasController < ApplicationController
   end
   # Establecer Parametros
   def compra_params
-    params.require(:compra).permit(:fecha, :cantidad, :subtotal, :impuesto, :total, :id_proveedor)
+    params.require(:compra).permit(:fecha, :cantidad, :subtotal, :impuesto, :total, :id_proveedor,  :id_producto)
   end
 
 end

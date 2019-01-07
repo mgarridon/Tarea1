@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190106225254) do
+ActiveRecord::Schema.define(version: 20190106234313) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -129,7 +129,6 @@ ActiveRecord::Schema.define(version: 20190106225254) do
     t.integer "telefono"
     t.integer "celular"
     t.string "nombre_empresa"
-    t.string "nombre_producto"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -191,8 +190,16 @@ ActiveRecord::Schema.define(version: 20190106225254) do
   add_foreign_key "asignaciones", "horarios", column: "id_horario"
   add_foreign_key "asignaciones", "rutas", column: "id_ruta"
   add_foreign_key "buses", "categoria_buses", column: "id_categoria"
+  add_foreign_key "compras", "productos", column: "id_producto"
+  add_foreign_key "compras", "proveedores", column: "id_proveedor"
   add_foreign_key "empresas", "rutas", column: "id_ruta"
   add_foreign_key "productos", "categorias", column: "id_categoria"
   add_foreign_key "rutas", "empresas", column: "id_empresa"
   add_foreign_key "rutas", "horarios", column: "id_horario"
+  add_foreign_key "stocks", "compras", column: "id_compra"
+  add_foreign_key "stocks", "productos", column: "id_producto"
+  add_foreign_key "stocks", "ventas", column: "id_venta"
+  add_foreign_key "ventas", "clientes", column: "id_cliente"
+  add_foreign_key "ventas", "empleados", column: "id_empleado"
+  add_foreign_key "ventas", "productos", column: "id_producto"
 end

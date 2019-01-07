@@ -168,6 +168,21 @@ Rails.application.routes.draw do
       # Eliminar
       delete 'compras.:id' , to: 'compras#eliminar'
 
+      #CRUD VENTAS
+      # Index
+      get 'ventas/' , to: 'ventas#index', as: 'ventas'
+      # Editar
+      get 'ventas/:id/editar', to: 'ventas#editar', as: 'editar_venta'
+      put 'ventas/:id', to: 'ventas#update', action: :update
+      patch 'ventas/:id', to: 'ventas#update', as:'update_venta',action: :update
+      # Nuevo
+      get 'ventas/nuevo' , to: 'ventas#nuevo', as: 'nueva_venta'
+      post 'ventas/', to: 'ventas#crear', as: 'crear_venta'
+      # Mostrar
+      get 'ventas/:id', to: 'ventas#mostrar', as: 'venta'
+      # Eliminar
+      delete 'ventas.:id' , to: 'ventas#eliminar'
+
       #CRUD proveedores
       # Index
       get 'proveedores/' , to: 'proveedores#index', as: 'proveedores'
