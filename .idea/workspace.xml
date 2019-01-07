@@ -2,108 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9ef061fb-333d-4c8e-8c6f-102e05522765" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/javascripts/asignaciones.coffee" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/javascripts/buses.coffee" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/javascripts/choferes.coffee" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/javascripts/empresas.coffee" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/javascripts/horarios.coffee" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/javascripts/rutas.coffee" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/asignaciones.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/buses.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/choferes.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/empresas.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/horarios.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/rutas.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/asignaciones_controller.rb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/buses_controller.rb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/choferes_controller.rb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/empresas_controller.rb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/horarios_controller.rb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/productos_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/productos_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/rutas_controller.rb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/welcome_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/welcome_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/helpers/asignaciones_helper.rb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/helpers/buses_helper.rb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/helpers/choferes_helper.rb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/helpers/empresas_helper.rb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/helpers/horarios_helper.rb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/helpers/rutas_helper.rb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/asignacion.rb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/bus.rb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/categoria_bus.rb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/chofer.rb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/empresa.rb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/horario.rb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/producto.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/producto.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/ruta.rb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/asignaciones/_form.html.erb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/asignaciones/editar.html.erb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/asignaciones/index.html.erb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/asignaciones/mostrar.html.erb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/asignaciones/nuevo.html.erb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/asignaciones/servicio.html.erb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/buses/_form.html.erb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/buses/editar.html.erb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/buses/index.html.erb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/buses/mostrar.html.erb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/buses/nuevo.html.erb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/choferes/_form.html.erb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/choferes/editar.html.erb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/choferes/index.html.erb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/choferes/mostrar.html.erb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/choferes/nuevo.html.erb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/empresas/_form.html.erb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/empresas/editar.html.erb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/empresas/index.html.erb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/empresas/mostrar.html.erb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/empresas/nuevo.html.erb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/horarios/_form.html.erb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/horarios/editar.html.erb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/horarios/index.html.erb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/horarios/mostrar.html.erb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/horarios/nuevo.html.erb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/layouts/_application_starter.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/layouts/_application_starter.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/productos/_form.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/productos/_form.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/productos/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/productos/index.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/productos/mostrar.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/productos/mostrar.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/rutas/_form.html.erb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/rutas/editar.html.erb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/rutas/index.html.erb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/rutas/mostrar.html.erb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/rutas/nuevo.html.erb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/welcome/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/welcome/index.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/database.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config/database.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/routes.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/migrate/20171110001949_create_choferes.rb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/migrate/20171110002234_create_buses.rb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/migrate/20171110002343_create_categoria_buses.rb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/migrate/20171110002814_create_horarios.rb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/migrate/20171110002919_create_rutas.rb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/migrate/20171110003155_create_asignaciones.rb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/migrate/20171110005944_create_empresas.rb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/migrate/20171110011211_agregar_llaves_foraneas.rb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/migrate/20171205161546_add_id_ruta_to_asignaciones.rb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/migrate/20171205162359_add_mas_llaves_foraneas.rb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/migrate/20171205172306_add_nombre_to_categoria.rb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/schema.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/schema.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/controllers/asignaciones_controller_test.rb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/controllers/buses_controller_test.rb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/controllers/choferes_controller_test.rb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/controllers/empresas_controller_test.rb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/controllers/horarios_controller_test.rb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/controllers/rutas_controller_test.rb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/fixtures/buses.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/fixtures/categoria_buses.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/fixtures/empresas.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/fixtures/horarios.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/models/asignacion_test.rb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/models/bus_test.rb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/models/categoria_bus_test.rb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/models/chofer_test.rb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/models/empresa_test.rb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/models/horario_test.rb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/models/ruta_test.rb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/devise/sessions/new.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/devise/sessions/new.html.erb" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -123,7 +22,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="routes.rb" pinned="false" current-in-tab="false">
+      <file leaf-file-name="routes.rb" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/config/routes.rb">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="357">
@@ -132,7 +31,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html.erb" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.html.erb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/welcome/index.html.erb">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="237">
@@ -176,6 +75,7 @@
       <find>Compra</find>
       <find>compra</find>
       <find>chofer</find>
+      <find>servicio</find>
     </findStrings>
     <replaceStrings>
       <replace>productos</replace>
@@ -403,12 +303,12 @@
       <workItem from="1546665835063" duration="3278000" />
       <workItem from="1546706514147" duration="22863000" />
       <workItem from="1546801506047" duration="20156000" />
-      <workItem from="1546871388511" duration="2291000" />
+      <workItem from="1546871388511" duration="2771000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="68169000" />
+    <option name="totallyTimeSpent" value="68649000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="64" y="-11" width="1303" height="780" extended-state="6" />
@@ -731,13 +631,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/routes.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="139" column="21" selection-start-line="139" selection-start-column="21" selection-end-line="139" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/db/schema.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1665">
@@ -756,6 +649,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="237">
           <caret line="139" column="88" selection-start-line="139" selection-start-column="88" selection-end-line="139" selection-end-column="88" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/routes.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="139" column="21" selection-start-line="139" selection-start-column="21" selection-end-line="139" selection-end-column="21" />
         </state>
       </provider>
     </entry>
