@@ -3,6 +3,7 @@
 <div class="box">
   <div class="box-header">
     <h3 class="box-title">Listado Productos
+      <% if current_user %>
       <%= link_to 'Agregar Producto', nuevo_producto_path,:class =>'btn bg-olive margin' %></h3>
     <select name="post[categoria_id]" id="categoria_id">
       <option value="">Elija un Proveedor</option>
@@ -10,6 +11,7 @@
         <option value="<%= r.id %>"><%= r.nombre_empresa %></option>
       <% end %>
     </select>
+      <% end %>
   </div>
 
   <!-- /.box-header -->
@@ -23,9 +25,11 @@
           <th>Precio Venta</th>
           <th>Marca</th>
           <th>Descripcion</th>
+          <% if current_user %>
           <th>Mostrar</th>
           <th>Editar</th>
           <th>Borrar</th>
+          <% end %>
         </tr>
         </thead>
         <tbody>
@@ -36,10 +40,11 @@
               <td><%= actual.precio %></td>
               <td><%= actual.marca %></td>
               <td><%= actual.descripcion%></td>
+              <% if current_user %>
               <td><%= link_to '<i class="glyphicon glyphicon-book"></i>'.html_safe,  producto_path(actual), class: 'btn btn-success' %></td>
               <td><%= link_to '<i class="glyphicon glyphicon-pencil"></i>'.html_safe,  editar_producto_path(actual), class: 'btn btn-info' %></td>
               <td><%= link_to '<i class="glyphicon glyphicon-trash"></i>'.html_safe, productos_path(actual), method: :delete, data: { confirm: '¿Está seguro?' }, class: 'btn btn-danger' %></td>
-
+              <% end %>
             </tr>
         <%end%>
         </tbody>

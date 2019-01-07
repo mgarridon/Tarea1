@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
 
+
+match 'users/registro' => redirect('/'), via: [:get, :post]
+
 #  devise_for :users
-  devise_for :users, :path_names => { :sign_up => "registro",:sign_in => "login" }
+  devise_for :users, :path_names => { :sign_up => "registro",:sign_in => "" }
   devise_scope :user do
     authenticated :user do
       get 'index' => "welcome#index"
@@ -140,6 +143,7 @@ Rails.application.routes.draw do
       #CRUD PRODUCTOS
       # Index
       get 'productos' , to: 'productos#index'
+      root 'welcome#index'
       root 'devise/sessions#new', as: :unauthenticated_root
       match '*path' => redirect('/'), via: [:get, :post]
     end

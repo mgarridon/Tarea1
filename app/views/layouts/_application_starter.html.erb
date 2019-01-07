@@ -69,6 +69,7 @@ desired effect
       <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
         <span class="sr-only">Toggle navigation</span>
       </a>
+      <% if current_user %>
       <!-- Navbar Right Menu -->
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
@@ -104,6 +105,7 @@ desired effect
 
         </ul>
       </div>
+        <% end %>
     </nav>
   </header>
   <!-- Left side column. contains the logo and sidebar -->
@@ -111,7 +113,7 @@ desired effect
 
     <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar">
-
+      <% if current_user %>
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel">
         <div class="pull-left image">
@@ -128,6 +130,7 @@ desired effect
 
         </div>
       </div>
+      <% end %>
 
 
 
@@ -136,13 +139,17 @@ desired effect
         <li class="header">Menu Principal</li>
         <!-- Optionally, you can add icons to the links -->
         <li class="active"><a href="../../welcome/index"><i class="fa fa-dashboard "></i> <span>Inicio</span></a></li>
+        <% if current_user %>
         <li><a href="../../categorias2"><i class="fa fa-list"></i> <span>Categorias</span></a></li>
+        <%end %>
         <li><a href="../../productos"><i class="fa fa-list"></i> <span>Productos</span></a></li>
+        <% if current_user %>
         <li><a href="../../proveedores"><i class="fa fa-group"></i> <span>Proveedores</span></a></li>
         <li><a href="../../empleados"><i class="fa fa-group"></i> <span>Empleados</span></a></li>
         <li><a href="../../clientes"><i class="fa fa-group"></i> <span>Clientes</span></a></li>
         <li><a href="../../compras"><i class="fa fa-building"></i> <span>Compras</span></a></li>
         <li><a href="../../ventas"><i class="fa fa-building"></i> <span>Ventas</span></a></li>
+        <%end %>
 
       </ul>
       <!-- /.sidebar-menu -->
