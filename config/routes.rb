@@ -13,7 +13,7 @@ Rails.application.routes.draw do
       get 'index' => "welcome#index"
       get 'login' => "welcome#login"
       get 'register' => "welcome#register"
-      resources :orderes_item
+      resources :listados
       resource :carts, only: [:show]
 
       #CRUD CATEGORIAS

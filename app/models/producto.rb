@@ -1,6 +1,6 @@
 class Producto < ApplicationRecord
 
-  has_many :orderes_item
+  has_many :listados
 
   validates_presence_of :nombre, message: " No Puede Estar En Blanco"
   validates_presence_of :precio, message: " No Puede Estar En Blanco"

@@ -40,10 +40,10 @@
               <td><%= actual.precio %></td>
               <td><%= actual.marca %></td>
               <td><%= actual.descripcion%></td>
-              <td><%= form_for(@order_item, remote: true) do |f| %>
-                  <%= f.hidden_field :product_id, value: actual.id %>
+              <td><%= form_for(@listado, remote: true) do |f| %>
+                  <%= f.hidden_field :id_producto, value: actual.id %>
                   <div class="form-group">
-                    <%= f.text_field :quantity, value: 1, min: 1, class: 'form-control' %>
+                    <%= f.text_field :cantidad, value: 1, min: 1, class: 'form-control' %>
                   </div>
                   <%= f.submit "Add to cart", class: 'btn btn-primary btn-sm' %>
                 <% end %></td>
