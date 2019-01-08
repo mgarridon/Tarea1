@@ -73,6 +73,47 @@ desired effect
       <!-- Navbar Right Menu -->
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
+          <li><%= link_to "#{current_order.orderes_item.size} items in card and price #{current_order.subtotal}", carts_path %></li>
+          <li class="dropdown messages-menu open">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
+              <i class="fa fa-cart-arrow-down"></i>
+              <span class="label label-success">4</span>
+            </a>
+            <ul class="dropdown-menu">
+              <li class="header">Carrito de compra Total:</li>
+              <li>
+                <ul class="menu">
+                  <li>
+                    <a href="#">
+                      <div class="pull-left">
+                        <img src="../../assets/img/user2-160x160.jpg" class="user-image" alt="User Image">
+                      </div>
+                      <h4>
+                        Fanta
+                        <small><i class="fa fa-clock-o"></i> $ 100c/u</small>
+                      </h4>
+                      <p>Cantidad: 1000 SubTotal: 100000 </p>
+                    </a>
+                  </li>
+                  <!-- end message -->
+                  <li>
+                    <a href="#">
+                      <div class="pull-left">
+                        <img src="../../assets/img/user2-160x160.jpg" class="user-image" alt="User Image">
+                      </div>
+                      <h4>
+                        Sprite
+                        <small><i class="fa fa-clock-o"></i> $ 100c/u</small>
+                      </h4>
+                      <p>Cantidad: 1000 SubTotal: 100000 </p>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li class="footer"><a href="#">Ir al Carrito</a></li>
+            </ul>
+          </li>
+
           <!-- User Account Menu -->
           <li class="dropdown user user-menu">
             <!-- Menu Toggle Button -->

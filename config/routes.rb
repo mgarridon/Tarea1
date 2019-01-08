@@ -1,15 +1,20 @@
 Rails.application.routes.draw do
 
 
-match 'users/registro' => redirect('/'), via: [:get, :post]
+  get 'cart/show'
+
+#match 'users/registro' => redirect('/'), via: [:get, :post]
 
 #  devise_for :users
-  devise_for :users, :path_names => { :sign_up => "registro",:sign_in => "" }
+  devise_for :users, :path_names => { :sign_up => "registro",:sign_in => "login" }
   devise_scope :user do
     authenticated :user do
+
       get 'index' => "welcome#index"
       get 'login' => "welcome#login"
       get 'register' => "welcome#register"
+      resources :orderes_item
+      resource :carts, only: [:show]
 
       #CRUD CATEGORIAS
       # Index

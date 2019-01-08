@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190107143102) do
+ActiveRecord::Schema.define(version: 20190108143814) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,6 +51,25 @@ ActiveRecord::Schema.define(version: 20190107143102) do
     t.integer "edad"
     t.string "direccion"
     t.integer "telefono"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "orderes", force: :cascade do |t|
+    t.float "subtotal"
+    t.float "total"
+    t.float "tax"
+    t.float "shipping"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "orderes_item", force: :cascade do |t|
+    t.integer "product_id"
+    t.integer "order_id"
+    t.float "unit_price"
+    t.integer "quantity"
+    t.float "total_price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -121,6 +140,8 @@ ActiveRecord::Schema.define(version: 20190107143102) do
 
   add_foreign_key "compras", "productos", column: "id_producto"
   add_foreign_key "compras", "proveedores", column: "id_proveedor"
+  add_foreign_key "orderes_item", "orderes"
+  add_foreign_key "orderes_item", "productos", column: "product_id"
   add_foreign_key "productos", "categorias", column: "id_categoria"
   add_foreign_key "stocks", "compras", column: "id_compra"
   add_foreign_key "stocks", "productos", column: "id_producto"
