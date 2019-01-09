@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
 
 
-  get 'cart/show'
 
 #match 'users/registro' => redirect('/'), via: [:get, :post]
 
@@ -13,8 +12,12 @@ Rails.application.routes.draw do
       get 'index' => "welcome#index"
       get 'login' => "welcome#login"
       get 'register' => "welcome#register"
-      resources :listados
-      resource :carts, only: [:show]
+
+      get '/cart', to: 'orderes_item#index'
+      resources :orderes_item, path: '/cart/items'
+
+      get 'stocks' , to: 'stocks#index', as: 'stocks'
+
 
       #CRUD CATEGORIAS
       # Index
@@ -141,6 +144,7 @@ Rails.application.routes.draw do
       get 'welcome/index'
       root 'welcome#index', as: :authenticated_root
       match '*path' => redirect('/'), via: [:get, :post]
+
     end
 
     unauthenticated do

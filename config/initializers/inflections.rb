@@ -23,13 +23,11 @@ ActiveSupport::Inflector.inflections do |inflect|
 
   inflect.singular /([^djlnrs])s([A-Z]|_|$)/, '\1\2'
   inflect.singular /([djlnrs])es([A-Z]|_|$)/, '\1\2'
-  inflect.singular /(.*)ces([A-Z]|_|$)$/i, '\1z\2'
+
 
   inflect.irregular 'user', 'users'
   inflect.irregular 'account', 'accounts'
   inflect.irregular 'password', 'passwords'
   inflect.irregular 'session', 'sessions'
   inflect.irregular 'ud', 'uds'
-  inflect.irregular 'cart', 'carts'
-
 end

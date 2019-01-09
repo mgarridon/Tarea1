@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190108202810) do
+ActiveRecord::Schema.define(version: 20190109035432) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,34 +55,34 @@ ActiveRecord::Schema.define(version: 20190108202810) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "listados", force: :cascade do |t|
-    t.integer "id_producto"
-    t.integer "id_orden"
-    t.float "precio_unico"
-    t.integer "cantidad"
-    t.float "precio_total"
+  create_table "orderes", force: :cascade do |t|
+    t.string "nombre"
+    t.string "apellido"
+    t.integer "sub_total"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "token"
   end
 
-  create_table "ordenes", force: :cascade do |t|
-    t.float "subtotal"
-    t.float "total"
-    t.float "impuesto"
-    t.float "envio"
+  create_table "orderes_item", force: :cascade do |t|
+    t.integer "producto_id"
+    t.integer "order_id"
+    t.integer "cantidad"
+    t.integer "precio"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "precio_total"
   end
 
   create_table "productos", force: :cascade do |t|
     t.string "nombre"
+    t.integer "precio_compra"
     t.integer "precio"
     t.string "marca"
     t.string "descripcion"
     t.integer "id_categoria"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "precio_compra"
   end
 
   create_table "proveedores", force: :cascade do |t|
@@ -140,8 +140,8 @@ ActiveRecord::Schema.define(version: 20190108202810) do
 
   add_foreign_key "compras", "productos", column: "id_producto"
   add_foreign_key "compras", "proveedores", column: "id_proveedor"
-  add_foreign_key "listados", "ordenes", column: "id_orden"
-  add_foreign_key "listados", "productos", column: "id_producto"
+  add_foreign_key "orderes_item", "orderes"
+  add_foreign_key "orderes_item", "productos"
   add_foreign_key "productos", "categorias", column: "id_categoria"
   add_foreign_key "stocks", "compras", column: "id_compra"
   add_foreign_key "stocks", "productos", column: "id_producto"

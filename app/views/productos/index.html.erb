@@ -15,6 +15,9 @@
   </div>
 
 
+
+
+
   <!-- /.box-header -->
   <div class="box-body">
     <div class="table-responsive">
@@ -25,6 +28,7 @@
           <th>Precio Venta</th>
           <th>Marca</th>
           <th>Descripcion</th>
+          <th>Categoria</th>
           <th>Carro</th>
           <% if current_user %>
           <th>Mostrar</th>
@@ -39,14 +43,13 @@
               <td><%= actual.nombre%></td>
               <td><%= actual.precio %></td>
               <td><%= actual.marca %></td>
-              <td><%= actual.descripcion%></td>
-              <td><%= form_for(@listado, remote: true) do |f| %>
-                  <%= f.hidden_field :id_producto, value: actual.id %>
-                  <div class="form-group">
-                    <%= f.text_field :cantidad, value: 1, min: 1, class: 'form-control' %>
-                  </div>
-                  <%= f.submit "Add to cart", class: 'btn btn-primary btn-sm' %>
-                <% end %></td>
+              <td><%= actual.descripcion %></td>
+              <td><%= form_tag orderes_item_path do %>
+                  <%= hidden_field_tag :producto_id, actual.id %>
+                  <%= number_field_tag :cantidad, 1 %>
+                  <%= submit_tag "Agregar al Carro" %>
+                <% end %>
+              </td>
               <% if current_user %>
               <td><%= link_to '<i class="glyphicon glyphicon-book"></i>'.html_safe,  producto_path(actual), class: 'btn btn-success' %></td>
               <td><%= link_to '<i class="glyphicon glyphicon-pencil"></i>'.html_safe,  editar_producto_path(actual), class: 'btn btn-info' %></td>

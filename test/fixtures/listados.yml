@@ -1,15 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+  cantidad: 1
+  precio: 1
   id_producto: 1
   id_orden: 1
-  precio_unico: 1.5
-  cantidad: 1
-  precio_total: 1.5
 
 two:
+  cantidad: 1
+  precio: 1
   id_producto: 1
   id_orden: 1
-  precio_unico: 1.5
-  cantidad: 1
-  precio_total: 1.5

@@ -1,0 +1,35 @@
+<div class="box-body">
+  <div class="table-responsive">
+    <table id="example1" class="table table-bordered table-striped">
+      <thead>
+      <tr>
+        <td>Producto</td>
+        <td>Precio</td>
+        <td>Cantidad</td>
+        <td>Total</td>
+      </tr>
+      </thead>
+      <tbody>
+      <% @items.each do |item| %>
+        <tr>
+          <td><%= item.producto.nombre %></td>
+          <td><%= number_to_currency item.precio %></td>
+          <td><%= item.cantidad %></td>
+          <td><%= item.set_precio_total%></td>
+          <td>
+            <%= form_for item, method: :delete do |f| %>
+              <%= f.submit "Eliminar" %>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+      </tbody>
+
+      <td>Total Compra : </td>
+
+
+    </table>
+  </div>
+</div>
+
+

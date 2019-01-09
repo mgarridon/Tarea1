@@ -3,9 +3,9 @@ class WelcomeController < ApplicationController
     cliente = Cliente.all.size
     producto= Producto.all.size
     venta = Venta.all.size
-    proveedor = Proveedor.all.size
+    compra = Compra.all.size
 
-    @datos = [cliente,producto,venta,proveedor]
+    @datos = [cliente,producto,venta,compra]
 
   end
 end

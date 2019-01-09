@@ -3,7 +3,6 @@ class ProductosController < ApplicationController
 
   def index
     @producto = Producto.all
-    @listado = current_orden.listados.new
   end
 
   # Crear nuevo
