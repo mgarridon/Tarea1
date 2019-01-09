@@ -63,7 +63,7 @@ class ProveedoresController < ApplicationController
   end
   # Establecer Parametros
   def proveedor_params
-    params.require(:proveedor).permit(:nombre, :apellido, :direccion, :telefono, :celular, :nombre_empresa, :nombre_producto)
+    params.require(:proveedor).permit(:rut, :nombre, :apellido, :direccion, :telefono, :celular, :nombre_empresa, :nombre_producto)
   end
 
 end

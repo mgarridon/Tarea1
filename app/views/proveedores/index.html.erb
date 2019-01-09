@@ -11,7 +11,7 @@
       <table id="example1" class="table table-bordered table-striped">
         <thead>
         <tr>
-          <th>ID</th>
+          <th>Rut</th>
           <th>Nombre</th>
           <th>Apellido</th>
           <th>Empresa</th>
@@ -23,7 +23,7 @@
         <tbody>
         <% @proveedor.each do |actual| %>
             <tr>
-              <td><%= actual.id%></td>
+              <td><%= actual.rut%></td>
               <td><%= actual.nombre %></td>
               <td><%= actual.apellido %></td>
               <td><%= actual.nombre_empresa %></td>

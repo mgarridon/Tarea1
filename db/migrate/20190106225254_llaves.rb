@@ -6,8 +6,5 @@ class Llaves < ActiveRecord::Migration[5.1]
     add_foreign_key :ventas, :clientes, column: :id_cliente, primary_key: :id
     add_foreign_key :ventas, :empleados, column: :id_empleado, primary_key: :id
     add_foreign_key :ventas, :productos, column: :id_producto, primary_key: :id
-    add_foreign_key :stocks, :compras, column: :id_compra, primary_key: :id
-    add_foreign_key :stocks, :ventas, column: :id_venta, primary_key: :id
-    add_foreign_key :stocks, :productos, column: :id_producto, primary_key: :id
   end
 end

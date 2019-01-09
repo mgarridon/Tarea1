@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190109140241) do
+ActiveRecord::Schema.define(version: 20190109170415) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -83,6 +83,7 @@ ActiveRecord::Schema.define(version: 20190109140241) do
     t.integer "id_categoria"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "cantidad"
   end
 
   create_table "proveedores", force: :cascade do |t|
@@ -94,14 +95,7 @@ ActiveRecord::Schema.define(version: 20190109140241) do
     t.string "nombre_empresa"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "stocks", force: :cascade do |t|
-    t.integer "id_compra"
-    t.integer "id_producto"
-    t.integer "id_venta"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string "rut"
   end
 
   create_table "users", force: :cascade do |t|
@@ -142,9 +136,6 @@ ActiveRecord::Schema.define(version: 20190109140241) do
   add_foreign_key "orderes_item", "orderes"
   add_foreign_key "orderes_item", "productos"
   add_foreign_key "productos", "categorias", column: "id_categoria"
-  add_foreign_key "stocks", "compras", column: "id_compra"
-  add_foreign_key "stocks", "productos", column: "id_producto"
-  add_foreign_key "stocks", "ventas", column: "id_venta"
   add_foreign_key "ventas", "clientes", column: "id_cliente"
   add_foreign_key "ventas", "empleados", column: "id_empleado"
   add_foreign_key "ventas", "productos", column: "id_producto"
