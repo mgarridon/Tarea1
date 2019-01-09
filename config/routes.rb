@@ -16,7 +16,6 @@ Rails.application.routes.draw do
       get '/cart', to: 'orderes_item#index'
       resources :orderes_item, path: '/cart/items'
 
-      get 'stocks' , to: 'stocks#index', as: 'stocks'
 
 
       #CRUD CATEGORIAS
@@ -43,7 +42,7 @@ Rails.application.routes.draw do
       # Editar
       get 'productos/:id/editar', to: 'productos#editar', as: 'editar_producto'
       put 'productos/:id', to: 'productos#update'
-      patch 'productos/:id', to: 'productos#update'
+      patch 'productos/:id', to: 'productos#update', as:'update_producto',action: :update
 
       # Nuevo
       post 'productos', to: 'productos#crear'
@@ -58,10 +57,10 @@ Rails.application.routes.draw do
 
       #CRUD CLIENTES
       # Index
-      get 'clientes/' , to: 'clientes#index', as: 'clientes'
+      get 'clientes' , to: 'clientes#index', as: 'clientes'
       # Editar
-      get 'clientes/:id/clientes', to: 'clientes#editar', as: 'editar_cliente'
-      put 'clientes/:id', to: 'clientes#update', action: :update
+      get 'clientes/:id/editar', to: 'clientes#editar', as: 'editar_cliente'
+      put 'clientes/:id', to: 'clientes#update'
       patch 'clientes/:id', to: 'clientes#update', as:'update_cliente',action: :update
       # Nuevo
       get 'clientes/nuevo' , to: 'clientes#nuevo', as: 'nuevo_cliente'
@@ -75,10 +74,10 @@ Rails.application.routes.draw do
 
       #CRUD EMPLEADOS
       # Index
-      get 'empleados/' , to: 'empleados#index', as: 'empleados'
+      get 'empleados' , to: 'empleados#index', as: 'empleados'
       # Editar
-      get 'empleados/:id/clientes', to: 'empleados#editar', as: 'editar_empleado'
-      put 'empleados/:id', to: 'empleados#update', action: :update
+      get 'empleados/:id/editar', to: 'empleados#editar', as: 'editar_empleado'
+      put 'empleados/:id', to: 'empleados#update'
       patch 'empleados/:id', to: 'empleados#update', as:'update_empleado',action: :update
       # Nuevo
       get 'empleados/nuevo' , to: 'empleados#nuevo', as: 'nuevo_empleado'
@@ -92,10 +91,10 @@ Rails.application.routes.draw do
 
       #CRUD COMPRAS
       # Index
-      get 'compras/' , to: 'compras#index', as: 'compras'
+      get 'compras' , to: 'compras#index', as: 'compras'
       # Editar
       get 'compras/:id/editar', to: 'compras#editar', as: 'editar_compra'
-      put 'compras/:id', to: 'compras#update', action: :update
+      put 'compras/:id', to: 'compras#update'
       patch 'compras/:id', to: 'compras#update', as:'update_compra',action: :update
       # Nuevo
       get 'compras/nuevo' , to: 'compras#nuevo', as: 'nueva_compra'
@@ -109,10 +108,10 @@ Rails.application.routes.draw do
 
       #CRUD VENTAS
       # Index
-      get 'ventas/' , to: 'ventas#index', as: 'ventas'
+      get 'ventas' , to: 'ventas#index', as: 'ventas'
       # Editar
       get 'ventas/:id/editar', to: 'ventas#editar', as: 'editar_venta'
-      put 'ventas/:id', to: 'ventas#update', action: :update
+      put 'ventas/:id', to: 'ventas#update'
       patch 'ventas/:id', to: 'ventas#update', as:'update_venta',action: :update
       # Nuevo
       get 'ventas/nuevo' , to: 'ventas#nuevo', as: 'nueva_venta'
@@ -126,10 +125,10 @@ Rails.application.routes.draw do
 
       #CRUD PROVEEDORES
       # Index
-      get 'proveedores/' , to: 'proveedores#index', as: 'proveedores'
+      get 'proveedores' , to: 'proveedores#index', as: 'proveedores'
       # Editar
       get 'proveedores/:id/editar', to: 'proveedores#editar', as: 'editar_proveedor'
-      put 'proveedores/:id', to: 'proveedores#update', action: :update
+      put 'proveedores/:id', to: 'proveedores#update'
       patch 'proveedores/:id', to: 'proveedores#update', as:'update_proveedor',action: :update
       # Nuevo
       get 'proveedores/nuevo' , to: 'proveedores#nuevo', as: 'nuevo_proveedor'
@@ -152,9 +151,12 @@ Rails.application.routes.draw do
       #CRUD PRODUCTOS
       # Index
       get 'productos' , to: 'productos#index'
+      get '/cart', to: 'orderes_item#index'
+      resources :orderes_item, path: '/cart/items'
       root 'welcome#index'
       root 'devise/sessions#new', as: :unauthenticated_root
       match '*path' => redirect('/'), via: [:get, :post]
+
     end
   end
   # root :to => "welcome#index"

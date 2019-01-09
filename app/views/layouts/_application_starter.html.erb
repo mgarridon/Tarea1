@@ -75,9 +75,6 @@ desired effect
 
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
-
-          <li><%= link_to pluralize(current_cart.items_count, 'producto'), cart_path %></li>
-
           <!-- User Account Menu -->
           <li class="dropdown user user-menu">
             <!-- Menu Toggle Button -->
@@ -143,6 +140,7 @@ desired effect
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">Menu Principal</li>
         <!-- Optionally, you can add icons to the links -->
+        <li><%= link_to pluralize(current_cart.items_count, 'producto'), cart_path %></li>
         <li class="active"><a href="../../welcome/index"><i class="fa fa-dashboard "></i> <span>Inicio</span></a></li>
         <% if current_user %>
         <li><a href="../../categorias2"><i class="fa fa-list"></i> <span>Categorias</span></a></li>

@@ -1,3 +1,88 @@
-<h1>Editando Cliente</h1>
+<%= form_for(@cliente, :html => {:role => 'form'}) do |f| %>
 
-<%= render 'form' %>
+  <div class="right_col" role="main">
+    <div class="row">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="x_panel">
+
+            <div class="x_content">
+              <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+              <script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script>
+              <% if @cliente.errors.any? %>
+                <div class="alert alert-danger">
+                  <a class="close" data-dismiss="alert"> × </a>
+                  <Strong><%= pluralize(@cliente.errors.count, "Error") %></Strong>
+                  <% @cliente.errors.full_messages.each do |error| %>
+                    <li>Error! <%= error %></li>
+                  <% end %>
+              <% end %>
+              </div>
+              <div class="container">
+                <div class="row">
+
+
+                  <div class="container">
+                    <div class="row">
+
+                      <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+                        <div class="form-group"></div>
+                        <label for=rut>Rut : </label>
+                        <%= f.text_field :rut, :id => "rut", :oninput => "checkRut(this)", :required => "true", :placeholder => "Ej: 12345612-3", autocomplete: "off", class: 'form-control', autofocus: true %>
+                        <span class="help-inline">
+                      </div>
+                      <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+                        <div class="form-group"></div>
+                        <label for=nombre>Nombre : </label>
+                        <%= f.text_field :nombre, :required => "true", class: 'form-control' %>
+                      </div>
+                      <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+                        <div class="form-group"></div>
+                        <label for=apellido>Apellido : </label>
+                        <%= f.text_field :apellido, :required => "true", class: 'form-control' %>
+                      </div>
+                      <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+                        <div class="form-group"></div>
+                        <label for=direccion>Direccion : </label>
+                        <%= f.text_field :direccion, :required => "true", class: 'form-control' %>
+                      </div>
+                      <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+                        <div class="form-group"></div>
+                        <label for=telefono>Telefono : </label>
+                        <%= f.text_field :telefono, :required => "true", class: 'form-control' %>
+                      </div>
+
+                      <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+                        <div class="form-group"></div>
+                        <%= f.submit "Guardar", class: 'btn btn-primary' %>
+                        <%= link_to 'Atrás', clientes_path, class: 'btn btn-danger' %>
+                      </div>
+
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+
+            </div>
+          </div>
+
+
+          <!-- /.modal-dialog -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+<% end %>
+<script>
+    $(document).ready(function () {
+        $(".datepicker-input").datepicker("option", "yearRange", "-99:+0");
+        $(".datepicker-input").datepicker("option", "maxDate", "+0m +0d");
+    });
+</script>
+<script src="validarRUT.js"></script>
