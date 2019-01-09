@@ -18,4 +18,5 @@ class OrderesItemController < ApplicationController
     redirect_to cart_path
   end
 
+
 end

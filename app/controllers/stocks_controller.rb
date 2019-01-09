@@ -18,7 +18,7 @@ class StocksController < ApplicationController
 
   # Establecer Parametros
   def stock_params
-    params.require(:stock).permit(:fecha_vencimiento, :id_compra, :id_producto, :id_venta)
+    params.require(:stock).permit(:id_compra, :id_producto, :id_venta)
   end
 
 end

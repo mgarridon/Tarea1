@@ -5,12 +5,6 @@
     <h3 class="box-title">Listado Productos
       <% if current_user %>
       <%= link_to 'Agregar Producto', nuevo_producto_path,:class =>'btn bg-olive margin' %></h3>
-    <select name="post[categoria_id]" id="categoria_id">
-      <option value="">Elija un Proveedor</option>
-      <% Proveedor.all.each do |r| %>
-        <option value="<%= r.id %>"><%= r.nombre_empresa %></option>
-      <% end %>
-    </select>
       <% end %>
   </div>
 
