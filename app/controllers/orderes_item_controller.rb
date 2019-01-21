@@ -4,6 +4,10 @@ class OrderesItemController < ApplicationController
     @items = current_cart.order.items
   end
 
+  def show
+    @items = current_cart.order_items
+  end
+
   def create
     current_cart.add_item(
       producto_id: params[:producto_id],

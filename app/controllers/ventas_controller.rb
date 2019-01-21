@@ -2,6 +2,9 @@ class VentasController < ApplicationController
   before_action :set_venta, only: [:editar,:update, :mostrar, :eliminar]
   def index
     @venta = Venta.all
+    @clientes = Cliente.all
+    @empleados = Empleado.all
+    @productos = Producto.all
   end
 
   # Crear nuevo
@@ -55,7 +58,7 @@ class VentasController < ApplicationController
   def eliminar
     begin
     @venta.destroy
-    flash[:success] = 'Se Borro Con Existo'
+    flash[:success] = 'Se Borró Con Éxito'
     rescue ActiveRecord::StatementInvalid => error
       flash[:danger] = 'No Se Puede Borrar Porque Esta Siendo Usado'
   end
@@ -71,7 +74,7 @@ class VentasController < ApplicationController
   end
   # Establecer Parametros
   def venta_params
-    params.require(:venta).permit(:fecha, :cantidad, :subtotal, :impuesto, :total, :id_cliente, :id_empleado, :id_producto )
+    params.require(:venta).permit(:fecha, :cantidad, :subtotal,:total, :id_cliente, :id_empleado, :id_producto )
   end
 
 end

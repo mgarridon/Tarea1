@@ -48,7 +48,7 @@ class Categorias2Controller < ApplicationController
   def eliminar
     begin
     @categoria.destroy
-      flash[:success] = 'Se Borro Con Exito'
+      flash[:success] = 'Se Borró Con Éxito'
     rescue ActiveRecord::StatementInvalid => error
       flash[:danger] = 'No Se Puede Borrar Porque Esta Siendo Usado'
     end

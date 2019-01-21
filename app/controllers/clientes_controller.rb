@@ -47,7 +47,7 @@ class ClientesController < ApplicationController
   def eliminar
     begin
     @cliente.destroy
-    flash[:success] = 'Se Borro Con Existo'
+    flash[:success] = 'Se Borró Con Éxito'
     rescue ActiveRecord::StatementInvalid => error
       flash[:danger] = 'No Se Puede Borrar Porque Esta Siendo Usado'
   end

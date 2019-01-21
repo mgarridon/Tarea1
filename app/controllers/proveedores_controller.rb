@@ -47,7 +47,7 @@ class ProveedoresController < ApplicationController
   def eliminar
     begin
     @proveedor.destroy
-    flash[:success] = 'Se Borro Con Existo'
+    flash[:success] = 'Se Borró Con Éxito'
     rescue ActiveRecord::StatementInvalid => error
       flash[:danger] = 'No Se Puede Borrar Porque Esta Siendo Usado'
   end

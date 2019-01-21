@@ -16,6 +16,12 @@ Rails.application.routes.draw do
       get '/cart', to: 'orderes_item#index'
       resources :orderes_item, path: '/cart/items'
 
+      get '/cart/checkout', to: 'orderes#new', as: :checkout
+      patch '/cart/checkout', to: 'orderes#create'
+
+      get 'orderes' , to: 'orderes#index',as: 'orderes'
+      delete 'orderes.:id' , to: 'orderes#eliminar'
+
 
 
       #CRUD CATEGORIAS

@@ -1,0 +1,17 @@
+<h2>Checkout</h2>
+
+<%= form_for @order, url: checkout_path do |f|  %>
+
+  <div class = "form_group">
+    <%= f.label :nombre  %>
+    <%= f.text_field :nombre  %>
+  </div>
+
+  <div class="form_group">
+    <%= f.label :apellido %>
+    <%= f.text_field :apellido %>
+  </div>
+
+  <%= f.submit 'Finalizar Compra' %>
+
+<% end %>

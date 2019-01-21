@@ -1,0 +1,6 @@
+<fieldset>
+  <%= f.select :id_proveedor, options_from_collection_for_select(@proveedor, "id", "nombre_empresa"), {}, {class: " selectpicker form-control ", data: {live_search: 'true'}} %>
+  <%= f.label :cantidad, "Cantidad"  %><br />
+  <%= f.text_area :cantidad  %>
+  <%= link_to_add_fields "Agregar Producto", f, :productos %>
+</fieldset>

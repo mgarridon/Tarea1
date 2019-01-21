@@ -48,7 +48,7 @@
               <td><%= form_tag orderes_item_path do %>
                   <%= hidden_field_tag :producto_id, actual.id %>
                   <%= number_field_tag :cantidad, 1 %>
-                  <%= submit_tag "Agregar al Carro" %>
+                  <%= submit_tag "Agregar al Carro"%>
                 <% end %>
               </td>
               <% if current_user %>

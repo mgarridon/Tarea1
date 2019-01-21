@@ -2,13 +2,15 @@ class ComprasController < ApplicationController
   before_action :set_compra, only: [:editar,:update, :mostrar, :eliminar]
   def index
     @compra = Compra.all
+    @productos = Producto.all
+    @proveedores = Proveedor.all
   end
 
   # Crear nuevo
   def nuevo
     @compra = Compra.new
-    @proveedores = Proveedor.all
     @productos = Producto.all
+    @proveedores = Proveedor.all
   end
   def crear
     @proveedores = Proveedor.all
@@ -52,7 +54,7 @@ class ComprasController < ApplicationController
   def eliminar
     begin
     @compra.destroy
-    flash[:success] = 'Se Borro Con Existo'
+    flash[:success] = 'Se Borró Con Éxito'
     rescue ActiveRecord::StatementInvalid => error
       flash[:danger] = 'No Se Puede Borrar Porque Esta Siendo Usado'
   end
@@ -68,7 +70,7 @@ class ComprasController < ApplicationController
   end
   # Establecer Parametros
   def compra_params
-    params.require(:compra).permit(:fecha, :cantidad, :subtotal, :impuesto, :total, :id_proveedor,  :id_producto)
+    params.require(:compra).permit(:fecha, :cantidad, :subtotal,:total, :id_proveedor,  :id_producto)
   end
 
 end

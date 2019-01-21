@@ -58,13 +58,8 @@
                         <div class="form-group"></div>
                         <label for=subtotal>Sub Total</label>
                         <%= f.text_field :subtotal, :required => "true", class: 'form-control' %>
+                      </div>
 
-                      </div>
-                      <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
-                        <div class="form-group"></div>
-                        <label for=impuesto>Impuesto</label>
-                        <%= f.select :impuesto, (values = ['Si', 'No']), {}, {class: " selectpicker form-control ", data: {live_search: 'true'}, :required => "true"} %>
-                      </div>
                       <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
                         <div class="form-group"></div>
                         <label for=total>Total</label>
