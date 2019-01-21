@@ -27,6 +27,8 @@
 //= require rails-ujs
 //= require data-confirm-modal
 //= require_tree .
+//= require turbolinks
+
 $(document).on('turbolinks:load', function() {
 
     $('form').on('click', '.remove_record', function(event) {

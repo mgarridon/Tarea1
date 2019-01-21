@@ -1,6 +1,6 @@
 class Producto < ApplicationRecord
 
-  #belongs_to :compra
+  belongs_to :compra, optional: true
 
   VALID_NAME_REGEX = /(?=^.{2,50}$)[a-zA-ZñÑáéíóúÁÉÍÓÚ]+(\s[a-zA-ZñÑáéíóúÁÉÍÓÚ]+)?/
 

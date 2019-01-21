@@ -39,19 +39,6 @@
                         <%= f.date_field :fecha, :id => "datepicker-input", :required => "true", class: 'form-control', type: 'date' %>
                       </div>
 
-                      <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
-                        <div class="form-group"></div>
-                        <label for=id_producto>Producto</label>
-                        <%= f.select :id_producto, options_from_collection_for_select(@productos, "id", "nombre"), {}, {class: " selectpicker form-control ", data: {live_search: 'true'}} %>
-                      </div>
-
-
-                      <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
-                        <div class="form-group"></div>
-                        <label for=cantidad>Cantidad</label>
-                        <%= f.text_field :cantidad, :required => "true", class: 'form-control' %>
-                      </div>
-
 
                       <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
                         <div class="form-group"></div>
@@ -72,8 +59,25 @@
                         <%= f.submit "Guardar" , class:'btn btn-primary' %>
                         <%= link_to 'Atrás', compras_path , class:'btn btn-danger' %>
                       </div>
+                      <div class="form-actions">
+                        <%= f.button :submit  %>
+                      <table class='table'>
+                        <thead>
+                        <tr>
+                          <th></th>
+                          <th>Producto</th>
+                          <th>Cantidad</th>
+                        </tr>
+                        </thead>
+                        <tbody class='fields'>
+                        <%= f.simple_fields_for :productos do |builder| %>
+                          <%= render 'producto', f:builder  %>
+                        <% end %>
+                        </tbody>
+                      </table>
 
-
+                        <%= link_to_add_row('Agregar Producto', f, :productos, class: 'btn btn-primary')  %>
+                      </div>
 
 
                     </div>
@@ -98,9 +102,6 @@
 
 <% end %>
 
-<%= f.fields_for :productos do |builder|  %>
- <%= render 'producto_fields', f: builder %>
-<% end %>
 
 
 <script>

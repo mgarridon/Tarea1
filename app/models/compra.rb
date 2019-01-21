@@ -1,8 +1,7 @@
 class Compra < ApplicationRecord
 
-  #attr_accessor :productos_attributes
-  #has_many :productos
-  #accepts_nested_attributes_for :productos, allow_destroy: true
+  has_many :productos, dependent: :destroy
+  accepts_nested_attributes_for :productos, allow_destroy: true, reject_if: proc { |att| att['name'].blank?}
 
   validate :Validar_fecha
   validates_presence_of :cantidad, message: " No Puede Estar En Blanco"
