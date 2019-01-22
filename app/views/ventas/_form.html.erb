@@ -43,6 +43,13 @@
                   <div class="container">
                     <div class="row">
 
+
+                        <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+                          <div class="form-group"></div>
+                          <label for=categoria>Cliente</label>
+                          <%= f.collection_select :id_cliente, Cliente.select("clientes.rut, clientes.id"), :id, :rut, {:include_blank => true}, {:class => 'form-control'} %>
+                        </div>
+
                       <div class="col-md-12">
                         <table id="carrito" class="tab">
                           <thead>

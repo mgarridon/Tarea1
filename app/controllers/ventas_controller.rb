@@ -3,7 +3,6 @@ class VentasController < ApplicationController
   def index
     @venta = Venta.all
     @clientes = Cliente.all
-    @empleados = Empleado.all
     @productos = Producto.all
   end
 
@@ -11,7 +10,6 @@ class VentasController < ApplicationController
   def nuevo
     @venta = Venta.new
     @clientes = Cliente.all
-    @empleados = Empleado.all
     @productos = Producto.all
   end
   def crear
@@ -50,6 +48,11 @@ class VentasController < ApplicationController
 
   # Mostrar
   def mostrar
+    @clientes = Cliente.all
+    @id_venta = params[:id]
+    @descripcionVenta = Carrito.select("id_producto, cantidad, precio_act").where("venta_id = ?", @id_venta)
+    @productos = Producto.select("id, nombre")
+    @CostoTotal = 0
   end
   # Actualizar/Editar
   def editar
@@ -87,7 +90,7 @@ class VentasController < ApplicationController
   end
   # Establecer Parametros
   def venta_params
-    params.require(:venta).permit(:fecha, carritos_attributes: [:id ,:id_producto, :cantidad, :precio_act] )
+    params.require(:venta).permit(:id_cliente, :fecha, carritos_attributes: [:id ,:id_producto, :cantidad, :precio_act] )
   end
 
 end

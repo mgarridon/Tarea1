@@ -11,34 +11,23 @@
       <table id="example1" class="table table-bordered table-striped">
         <thead>
         <tr>
+          <th>ID</th>
           <th>Fecha</th>
-          <th>Cantidad</th>
-          <th>Sub Total</th>
+          <th>Cliente</th>
           <th>Total</th>
-          <th>Id Cliente</th>
-          <th>Id Empleado</th>
-          <th>Id Producto</th>
           <th>Mostrar</th>
-          <th>Editar</th>
-          <th>Borrar</th>
         </tr>
         </thead>
         <tbody>
-        <% @venta.each do |actual| %>
-            <tr>
-              <td><%= actual.fecha %></td>
-              <td><%= actual.cantidad %></td>
-              <td><%= actual.subtotal %></td>
-              <td><%= actual.total %></td>
-              <td><%= actual.id_cliente%></td>
-              <td><%= actual.id_empleado%></td>
-              <td><%= actual.id_producto%></td>
-              <td><%= link_to '<i class="glyphicon glyphicon-book"></i>'.html_safe,  venta_path(actual), class: 'btn btn-success' %></td>
-              <td><%= link_to '<i class="glyphicon glyphicon-pencil"></i>'.html_safe,  editar_venta_path(actual), class: 'btn btn-info' %></td>
-              <td><%= link_to '<i class="glyphicon glyphicon-trash"></i>'.html_safe, ventas_path(actual), method: :delete, data: { confirm: '¿Está seguro?' }, class: 'btn btn-danger' %></td>
-
-            </tr>
-        <%end%>
+        <%@venta.each do |venta| %>
+          <tr>
+            <td><%= venta.id %></td>
+            <td><%= venta.fecha.strftime('%d-%m-%Y') %></td>
+            <% cliente = @clientes.find(venta.id_cliente.to_i) %>
+            <td><%= cliente.rut %></td>
+            <td><%= link_to '<i class="glyphicon glyphicon-book"></i>'.html_safe,  venta_path(venta), class: 'btn btn-success' %></td>
+          </tr>
+        <% end %>
         </tbody>
         <tfoot>
         </tfoot>
