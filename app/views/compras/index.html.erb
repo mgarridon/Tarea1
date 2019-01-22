@@ -31,8 +31,7 @@
               <td><%= actual.total %></td>
               <% proveedor = @proveedores.find(actual.id_proveedor.to_i) %>
               <td><%= proveedor.nombre_empresa %></td>
-              <% producto = @productos.find(actual.id_producto.to_i) %>
-              <td><%= producto.nombre %></td>
+              <td></td>
               <td><%= link_to '<i class="glyphicon glyphicon-book"></i>'.html_safe,  compra_path(actual), class: 'btn btn-success' %></td>
               <td><%= link_to '<i class="glyphicon glyphicon-pencil"></i>'.html_safe,  editar_compra_path(actual), class: 'btn btn-info' %></td>
               <td><%= link_to '<i class="glyphicon glyphicon-trash"></i>'.html_safe, compras_path(actual), method: :delete, data: { confirm: '¿Está seguro?' }, class: 'btn btn-danger' %></td>

@@ -26,11 +26,19 @@ class OrderesController < ApplicationController
   end
 
 
+
   def eliminar
-    @order = Order.find(params[:id]).destroy
-    flash[:notice] = "Eliminado correctamente"
-    redirect_to orderes_path
+    begin
+      @order.destroy
+      flash[:success] = 'Se Borró Con Éxito'
+    rescue ActiveRecord::StatementInvalid => error
+      flash[:danger] = 'No Se Puede Borrar Porque Esta Siendo Usado'
+    end
+    respond_to do |format|
+      format.html {redirect_to orderes_path}
+    end
   end
+
 
 
 end

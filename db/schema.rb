@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190121033729) do
+ActiveRecord::Schema.define(version: 20190122020217) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "carritos", force: :cascade do |t|
+    t.integer "cantidad"
+    t.integer "precio_act"
+    t.integer "id_producto"
+    t.integer "id_venta"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "venta_id"
+  end
 
   create_table "categorias", force: :cascade do |t|
     t.string "nombre"
@@ -130,6 +140,8 @@ ActiveRecord::Schema.define(version: 20190121033729) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "carritos", "productos", column: "id_producto"
+  add_foreign_key "carritos", "ventas", column: "id_venta"
   add_foreign_key "compras", "productos", column: "id_producto"
   add_foreign_key "compras", "proveedores", column: "id_proveedor"
   add_foreign_key "orderes_item", "orderes"

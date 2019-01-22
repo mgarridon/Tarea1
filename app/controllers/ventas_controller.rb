@@ -18,20 +18,33 @@ class VentasController < ApplicationController
     @clientes = Cliente.all
     @empleados = Empleado.all
     @productos = Producto.all
-    @venta=Venta.new(venta_params)
-    respond_to do |format|
-      if @venta.valid?
-        if @venta.save
-          format.html { redirect_to @venta, notice: 'Venta Creada Satisfactoriamente' }
-          format.json { render :mostrar, status: :created, location: @venta }
-        else
-          format.html { render :nuevo }
-          format.json { render json: @venta.errors, status: :unprocessable_entity }
+    @venta = Venta.new(venta_params)
+    fecha_actual = DateTime.now
+    @venta.fecha= fecha_actual
+    if @venta.save
+      #Venta correctamente hecha
+      # Captura del id de la venta recien hecha
+      @venta_recien_hecha = Venta.select("id").where("fecha = ?", fecha_actual)
+      #Captura de los productos asociados a la venta recien hecha
+      @productos_comprados = Carrito.select("id_producto, cantidad, precio_act, id").where("venta_id = ?", @venta_recien_hecha[0].id)
+      #Actualizacion de stock para cada producto seleccionado
+      @productos_comprados.each do |producto|
+        #Captura del stock actual del producto
+        @datos_productos = Producto.select("cantidad, nombre, precio").where("id = ?", producto.id_producto)
+        #Captura de la cantidad comprada
+        nuevo_stock = @datos_productos[0].cantidad.to_i - producto.cantidad
+        product = Producto.find(producto.id_producto.to_i)
+        product.update_attribute :cantidad, nuevo_stock.to_s
+
+        if nuevo_stock < 5
+          flash[:danger] = "Producto: "+@datos_productos[0].nombre.to_s+" tiene stock bajo: "+nuevo_stock.to_s
         end
-      else
-        format.html { render :nuevo }
-        format.json { render json: @venta.errors, status: :unprocessable_entity }
       end
+      flash[:success] = "Se ha realizado la venta"
+      redirect_to ventas_path
+    else
+      flash[:danger] = "Ha ocurrido un error"
+      render nueva_venta_path
     end
   end
 
@@ -74,7 +87,7 @@ class VentasController < ApplicationController
   end
   # Establecer Parametros
   def venta_params
-    params.require(:venta).permit(:fecha, :cantidad, :subtotal,:total, :id_cliente, :id_empleado, :id_producto )
+    params.require(:venta).permit(:fecha, carritos_attributes: [:id ,:id_producto, :cantidad, :precio_act] )
   end
 
 end

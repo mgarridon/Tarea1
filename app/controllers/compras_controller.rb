@@ -39,7 +39,6 @@ class ComprasController < ApplicationController
   def editar
     @proveedores = Proveedor.all
     @productos = Producto.all
-    @compra.productos.build
   end
   def update
     respond_to do |format|
@@ -71,7 +70,7 @@ class ComprasController < ApplicationController
   end
   # Establecer Parametros
   def compra_params
-    params.require(:compra).permit(:fecha, :cantidad, :subtotal,:total, :id_proveedor,  :id_producto, productos_attributes: Producto.attribute_names.map(&:to_sym).push(:destroy))
+    params.require(:compra).permit(:id_proveedor, :fecha, :subtotal,:total, productos_attributes: [:id, :cantidad])
   end
 
 end

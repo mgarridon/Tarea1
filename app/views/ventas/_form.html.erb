@@ -1,4 +1,22 @@
-<%= form_for(@venta, :url => ventas_path ,:html => {:role => 'form'}) do |f| %>
+<% if @venta.errors.any? %>
+  <div id="error_explanation">
+    <h4>
+      No se pudo crear esta venta debido a:
+    </h4>
+    <div class="alert alert-danger">
+      <a href="#" data-dismiss="alert" class="close">×</a>
+      <ul>
+        <% @venta.errors.full_messages.each do |msg| %>
+          <li>
+            <%= msg %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+<% end %>
+
+<%= nested_form_for(@venta) do |f|  %>
 
 <div class="right_col" role="main">
   <div class="row">
@@ -25,55 +43,44 @@
                   <div class="container">
                     <div class="row">
 
-                      <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
-                        <div class="form-group"></div>
-                        <label for=id_cliente>Id_Cliente</label>
-                        <%= f.select :id_cliente, options_from_collection_for_select(@clientes, "id", "nombre"), {}, {class: " selectpicker form-control ", data: {live_search: 'true'}} %>
-                        <span class="help-inline">
-                      </div>
-                      <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
-                        <div class="form-group"></div>
-                        <label for=id_empleado>Id_Empleado</label>
-                        <%= f.select :id_empleado, options_from_collection_for_select(@empleados, "id", "nombre"), {}, {class: " selectpicker form-control ", data: {live_search: 'true'}} %>
-                      </div>
-                      <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
-                        <div class="form-group"></div>
-                        <label for=id_producto>Id_Producto</label>
-                        <%= f.select :id_producto, options_from_collection_for_select(@productos, "id", "nombre"), {}, {class: " selectpicker form-control ", data: {live_search: 'true'}} %>
-                      </div>
+                      <div class="col-md-12">
+                        <table id="carrito" class="tab">
+                          <thead>
+                          <tr>
+                            <th>Producto</th>
+                            <th>Cantidad</th>
+                            <th></th>
+                          </tr>
+                          </thead>
+                          <tbody>
+                          <%= f.fields_for :carritos, :wrapper => false do |carrito| %>
+                            <tr class="fields">
+                              <td>
+                                <%= carrito.collection_select :id_producto, Producto.select("productos.nombre, productos.cantidad, productos.id").where("productos.cantidad > ?", 0), :id, :nombre, {:include_blank => true}, {:class => 'form-control'} %>
+                              </td>
+                              <td>
+                                <%= carrito.text_field :cantidad, class: "form-control", type: 'number', placeholder: "Cantidad del Producto" %>
+                              </td>
+                              <td>
+                                <%= carrito.link_to_remove "Eliminar", :class => 'btn btn-danger btn-sm borrar' %>
+                              </td>
+                            </tr>
+                            <br>
+                          <% end %>
+                          </tbody>
+                        </table>
+                        <p>
+                          <%= f.link_to_add "Agregar Producto", :carritos, :class => 'btn btn-default btn-sm', "data-target" => "#carrito", id: "AgregarProd" %>
+                        </p>
+                        <br>
+                        <div class="row">
+                          <div class="form-actions">
+                            <%= f.submit "Enviar", :class => 'btn btn-primary' %>
+                            <%= link_to 'Cancelar', ventas_path, :class => 'btn btn-danger' %>
 
-                      <div class="col-lg-12 col-sm-12 col-md-12 col-xs-12">
-                        <div class="form-group"></div>
-                        <label for=fecha_ingreso>Fecha</label>
-
-                        <%= f.date_field :fecha, :id => "datepicker-input", :required => "true", class: 'form-control', type: 'date' %>
-
+                          </div>
+                        </div>
                       </div>
-                      <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
-                        <div class="form-group"></div>
-                        <label for=cantidad>Cantidad</label>
-                        <%= f.text_field :cantidad, :required => "true", class: 'form-control' %>
-                      </div>
-                      <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
-                        <div class="form-group"></div>
-                        <label for=subtotal>Sub Total</label>
-                        <%= f.text_field :subtotal,:required => "true" , class:'form-control'%>
-                      </div>
-                      <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
-                        <div class="form-group"></div>
-                        <label for=total>Total</label>
-                        <%= f.text_field :total, :required => "true", class: 'form-control' %>
-                      </div>
-
-
-                      <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
-                        <div class="form-group"></div>
-                        <%= f.submit "Guardar" , class:'btn btn-primary' %>
-                        <%= link_to 'Atrás', ventas_path , class:'btn btn-danger' %>
-                      </div>
-
-
-
 
                     </div>
 

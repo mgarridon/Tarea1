@@ -1,9 +1,8 @@
 class Venta < ApplicationRecord
+  has_many :carritos
+  accepts_nested_attributes_for :carritos
 
   validate :Validar_fecha
-  validates_presence_of :cantidad, message: " No Puede Estar En Blanco"
-  validates_presence_of :subtotal, message: " No Puede Estar En Blanco"
-  validates_presence_of :total, message: " No Puede Estar En Blanco"
 
   def Validar_fecha
 
