@@ -1,6 +1,6 @@
 <div class="box">
   <div class="box-header">
-    <h1 class="box-title">Mostrar Compra</h1>
+    <h1 class="box-title"><b>Proveedor(a): <%= Proveedor.find(@proveedor[0].id_proveedor).rut.titleize %></b></h1>
     <div class="right_col" role="main">
       <div class="row">
         <div class="row">
@@ -19,45 +19,41 @@
                     <div class="container">
                       <div class="row">
 
-                        <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
-                          <div class="form-group"></div>
-                          <label>Fecha : </label>
-                          <%= @compra.fecha %>
-                        </div>
-                        <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
-                          <div class="form-group"></div>
-                          <label for=cantidad>Cantidad :</label>
-                          <%= @compra.cantidad %>
-                        </div>
-                        <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
-                          <div class="form-group"></div>
-                          <label for=subtotal>Sub Total : </label>
-                          <%= @compra.subtotal %>
-                        </div>
-                        <div class="col-lg-12 col-sm-12 col-md-12 col-xs-12">
-                          <div class="form-group"></div>
-                          <label for=total>Total : </label>
-                          <%= @compra.total %>
-                        </div>
-                        <div class="col-lg-12 col-sm-12 col-md-12 col-xs-12">
-                          <div class="form-group"></div>
-                          <label for=id_proveedor>ID Proveedor : </label>
-                          <%= @compra.id_proveedor %>
-                        </div>
-                        <div class="col-lg-12 col-sm-12 col-md-12 col-xs-12">
-                          <div class="form-group"></div>
-                          <label for=id_producto>ID Producto : </label>
-                          <%= @compra.id_producto %>
-                        </div>
+                        <p>
+                        <ul>
+                          <td><b>Nombre: <%= Proveedor.find(@proveedor[0].id_proveedor).nombre.titleize %></b></td>
+                          <br>
+                          <td><b>Apellido: <%= Proveedor.find(@proveedor[0].id_proveedor).apellido.titleize %></b></td>
+                          <br>
+                          <td><b>Teléfono: <%= Proveedor.find(@proveedor[0].id_proveedor).telefono %></b></td>
+                          <br>
+                          <td><b>Dirección: <%= Proveedor.find(@proveedor[0].id_proveedor).direccion.titleize %></b></td>
+                        </ul>
+                        </p><br>
 
+                        <% @descripcionCompra.each do |compra| %>
+                          <p class="list-group-item-text">
+                          <ul>
+                            <li>
+                              <b>Producto: <%= @productos.find(compra.id_producto).nombre.capitalize %> </b>
+                            </li>
+                            <b>Cantidad: <%= compra.cantidad %></b><br>
+                            <b>Sub Total: $<%= (compra.cantidad).to_i * (compra.precio_act).to_i %></b><br>
+                            <label class="text-muted">
+                              <small>Precio unitario: $<%= compra.precio_act %></small>
+                            </label>
 
-                        <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
-                          <div class="form-group"></div>
-
-                          <%= link_to 'Atrás', compras_path , class:'btn btn-danger' %>
-                        </div>
-
-
+                            <% @CostoTotal = @CostoTotal + ((compra.cantidad).to_i * (compra.precio_act).to_i) %>
+                          </ul>
+                          </p>
+                        <% end %>
+                        <ul>
+                          <div>
+                            <label class="form-label">Compra total: $<%= @CostoTotal %></label><br>
+                            <a href="<%= params[:id] %>.pdf" class="btn btn-success" target="_blank">Descargar</a>
+                            <%= link_to 'Atrás', compras_path, class: 'btn btn-danger' %>
+                          </div>
+                        </ul>
 
 
                       </div>
@@ -73,7 +69,6 @@
             </div>
 
 
-
             <!-- /.modal-dialog -->
           </div>
         </div>
@@ -81,4 +76,3 @@
     </div>
   </div>
 </div>
-

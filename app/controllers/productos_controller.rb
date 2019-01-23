@@ -8,10 +8,10 @@ class ProductosController < ApplicationController
   # Crear nuevo
   def nuevo
     @producto = Producto.new
-    @categorias = Categoria.all
+    @categoria = Categoria.all
   end
   def crear
-    @categorias=Categoria.all
+    @categoria=Categoria.all
     @producto=Producto.new(producto_params)
     respond_to do |format|
       if @producto.valid?
@@ -31,6 +31,8 @@ class ProductosController < ApplicationController
 
   # Mostrar
   def mostrar
+    @id_producto = params[:id]
+    @categoria = Producto.select("id_categoria").where("id = ?",@id_producto)
   end
   # Actualizar/Editar
   def editar

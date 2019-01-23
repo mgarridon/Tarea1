@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190122020217) do
+ActiveRecord::Schema.define(version: 20190123044443) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,10 +19,10 @@ ActiveRecord::Schema.define(version: 20190122020217) do
     t.integer "cantidad"
     t.integer "precio_act"
     t.integer "id_producto"
-    t.integer "id_venta"
+    t.integer "venta_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "venta_id"
+    t.integer "compra_id"
   end
 
   create_table "categorias", force: :cascade do |t|
@@ -43,7 +43,6 @@ ActiveRecord::Schema.define(version: 20190122020217) do
   end
 
   create_table "compras", force: :cascade do |t|
-    t.date "fecha"
     t.integer "cantidad"
     t.integer "subtotal"
     t.integer "total"
@@ -51,6 +50,7 @@ ActiveRecord::Schema.define(version: 20190122020217) do
     t.integer "id_producto"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "fecha"
   end
 
   create_table "empleados", force: :cascade do |t|
@@ -129,7 +129,6 @@ ActiveRecord::Schema.define(version: 20190122020217) do
   end
 
   create_table "ventas", force: :cascade do |t|
-    t.date "fecha"
     t.integer "cantidad"
     t.integer "subtotal"
     t.integer "total"
@@ -138,10 +137,12 @@ ActiveRecord::Schema.define(version: 20190122020217) do
     t.integer "id_producto"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "fecha"
   end
 
+  add_foreign_key "carritos", "compras"
   add_foreign_key "carritos", "productos", column: "id_producto"
-  add_foreign_key "carritos", "ventas", column: "id_venta"
+  add_foreign_key "carritos", "ventas"
   add_foreign_key "compras", "productos", column: "id_producto"
   add_foreign_key "compras", "proveedores", column: "id_proveedor"
   add_foreign_key "orderes_item", "orderes"

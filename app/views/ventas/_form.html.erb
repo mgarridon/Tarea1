@@ -66,7 +66,7 @@
                                 <%= carrito.collection_select :id_producto, Producto.select("productos.nombre, productos.cantidad, productos.id").where("productos.cantidad > ?", 0), :id, :nombre, {:include_blank => true}, {:class => 'form-control'} %>
                               </td>
                               <td>
-                                <%= carrito.text_field :cantidad, class: "form-control", type: 'number', placeholder: "Cantidad del Producto" %>
+                                <%= carrito.text_field :cantidad, class: "form-control", type: 'number', placeholder: "Cantidad del Producto" , :onclick => 'enableBtn()'%>
                               </td>
                               <td>
                                 <%= carrito.link_to_remove "Eliminar", :class => 'btn btn-danger btn-sm borrar' %>
@@ -77,12 +77,12 @@
                           </tbody>
                         </table>
                         <p>
-                          <%= f.link_to_add "Agregar Producto", :carritos, :class => 'btn btn-default btn-sm', "data-target" => "#carrito", id: "AgregarProd" %>
+                          <%= f.link_to_add "Agregar Producto", :carritos, :class => 'btn btn-default btn-sm', "data-target" => "#carrito", :onclick => "enableBtn()" %>
                         </p>
                         <br>
                         <div class="row">
                           <div class="form-actions">
-                            <%= f.submit "Enviar", :class => 'btn btn-primary' %>
+                            <%= f.submit "Enviar", :class => 'btn btn-primary', id: "myBtn", disabled: "disabled" %>
                             <%= link_to 'Cancelar', ventas_path, :class => 'btn btn-danger' %>
 
                           </div>

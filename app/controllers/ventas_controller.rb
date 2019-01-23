@@ -39,7 +39,7 @@ class VentasController < ApplicationController
         end
       end
       flash[:success] = "Se ha realizado la venta"
-      redirect_to ventas_path
+      redirect_to venta_path(@venta_recien_hecha[0].id)
     else
       flash[:danger] = "Ha ocurrido un error"
       render nueva_venta_path
@@ -48,11 +48,15 @@ class VentasController < ApplicationController
 
   # Mostrar
   def mostrar
-    @clientes = Cliente.all
     @id_venta = params[:id]
+    @cliente = Venta.select("id_cliente").where("id = ?",@id_venta)
     @descripcionVenta = Carrito.select("id_producto, cantidad, precio_act").where("venta_id = ?", @id_venta)
     @productos = Producto.select("id, nombre")
     @CostoTotal = 0
+    respond_to do |format|
+      format.html
+      format.pdf {render template: 'ventas/boleta', pdf: 'Boleta_de_Venta ', page_size: 'A4', orientation: 'Landscape'}
+    end
   end
   # Actualizar/Editar
   def editar

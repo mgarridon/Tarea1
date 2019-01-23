@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
 
 
-#match 'users/registro' => redirect('/'), via: [:get, :post]
+match 'users/registro' => redirect('/'), via: [:get, :post]
 
 #  devise_for :users
   devise_for :users, :path_names => { :sign_up => "registro",:sign_in => "login" }

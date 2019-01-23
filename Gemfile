@@ -22,11 +22,12 @@ gem 'data-confirm-modal'
 gem 'devise', '~> 4.4'
 # Use CoffeeScript for .coffee assets and views
 gem 'turbolinks', '~> 5'
+gem "wicked_pdf"
+gem "wkhtmltopdf-binary"
 gem 'nested_form'
 gem 'coffee-rails', '~> 4.2'
-gem 'simple_form'
-
 gem 'jquery-rails'
+gem 'listen', '>= 3.0.5', '< 3.2'
 gem 'rails-assets-jquery', source: 'https://rails-assets.org'
 gem 'rails-assets-datatables', source: 'https://rails-assets.org'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder

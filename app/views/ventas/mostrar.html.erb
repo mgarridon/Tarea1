@@ -1,6 +1,6 @@
 <div class="box">
   <div class="box-header">
-    <h1 class="box-title">Mostrar Venta</h1>
+    <h1 class="box-title"><b>Cliente(a): <%= Cliente.find(@cliente[0].id_cliente).rut.titleize %></b></h1>
     <div class="right_col" role="main">
       <div class="row">
         <div class="row">
@@ -19,35 +19,38 @@
                     <div class="container">
                       <div class="row">
 
-                        
+                        <p>
+                          <ul>
+                            <td><b>Nombre: <%= Cliente.find(@cliente[0].id_cliente).nombre.titleize %></b></td><br>
+                            <td><b>Apellido: <%= Cliente.find(@cliente[0].id_cliente).apellido.titleize %></b></td><br>
+                            <td><b>Teléfono: <%= Cliente.find(@cliente[0].id_cliente).telefono %></b></td><br>
+                            <td><b>Dirección: <%= Cliente.find(@cliente[0].id_cliente).direccion.titleize %></b></td>
+                          </ul>
+                        </p><br>
+
                         <%@descripcionVenta.each do |venta| %>
                           <p class="list-group-item-text">
                           <ul>
                             <li>
                               <b>Producto: <%= @productos.find(venta.id_producto).nombre.capitalize %> </b>
                             </li>
-                            <li>
-                              <b>Cantidad: <%= venta.cantidad %></b>
-                            </li>
-                            <li>
+                              <b>Cantidad: <%= venta.cantidad %></b><br>
                               <b>Sub Total: $<%= (venta.cantidad).to_i * (venta.precio_act).to_i %></b><br>
                               <label class="text-muted">
                                 <small>Precio unitario: $<%= venta.precio_act %></small>
                               </label>
-                            </li>
+
                             <% @CostoTotal = @CostoTotal + ((venta.cantidad).to_i * (venta.precio_act).to_i) %>
                           </ul>
                           </p>
                         <% end %>
-                        <div class="panel-footer">
-                          <label class="form-label">Venta total: $<%= @CostoTotal %></label>
-                        </div>
+                        <ul>
+                          <div>
+                            <label class="form-label">Venta total: $<%= @CostoTotal %></label><br>
+                            <a href="<%=params[:id]%>.pdf" class="btn btn-success" target="_blank">Descargar</a>
+                            <%= link_to 'Atrás', ventas_path, class: 'btn btn-danger' %>
+                          </div></ul>
 
-                        <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
-                          <div class="form-group"></div>
-
-                          <%= link_to 'Atrás', ventas_path , class:'btn btn-danger' %>
-                        </div>
 
 
 

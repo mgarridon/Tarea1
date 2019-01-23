@@ -36,8 +36,7 @@ $(document).on('turbolinks:load', function() {
         $(this).closest('tr').remove();
         return event.preventDefault();
     });
-
-    $(document).on('click', '.borrar', function (event) {
+        $(document).on('click', '.borrar', function (event) {
         $(this).closest('tr').remove();
         var nFilas = $("#carrito tr").length;
         if(nFilas == 1){

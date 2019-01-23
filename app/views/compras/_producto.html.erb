@@ -1,8 +1,0 @@
-<tr>
-  <td>
-    <%= f.input_field :_destroy, as: :hidden  %>
-    <%= link_to 'Eliminar', '#', class: 'remove_record'  %>
-  </td>
-  <td><%= f.select :nombre, options_from_collection_for_select(@productos, "id", "nombre"), {}, {class: " selectpicker form-control ", data: {live_search: 'true'}} %></td>
-  <td><%= f.input :cantidad, label: false  %></td>
-</tr>

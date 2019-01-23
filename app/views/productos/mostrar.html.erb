@@ -1,6 +1,6 @@
 <div class="box">
   <div class="box-header">
-    <h1 class="box-title">Mostrar Producto</h1>
+    <h1 class="box-title"><b>Producto</b></h1>
     <div class="right_col" role="main">
       <div class="row">
         <div class="row">
@@ -22,39 +22,19 @@
                         <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
                           <div class="form-group"></div>
                           <label for="nombre">Nombre : </label>
-                          <%= @producto.nombre %>
-                        </div>
-                        <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
-                          <div class="form-group"></div>
+                          <%= @producto.nombre %><br>
                           <label for=precio>Precio Compra :</label>
-                          <%= @producto.precio_compra %>
-                        </div>
-                        <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
-                          <div class="form-group"></div>
+                          <%= @producto.precio_compra %><br>
                           <label for=precio>Precio Venta :</label>
-                          <%= @producto.precio %>
-                        </div>
-                        <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
-                          <div class="form-group"></div>
+                          <%= @producto.precio %><br>
                           <label for=marca>Marca : </label>
-                          <%= @producto.marca %>
-                        </div>
-                        <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
-                          <div class="form-group"></div>
+                          <%= @producto.marca %><br>
                           <label for=descripcion>Descripcion : </label>
-                          <%= @producto.descripcion %>
-                        </div>
-                        <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
-                          <div class="form-group"></div>
-                          <label for=id_categoria>Id_Categoria : </label>
-                          <%= @producto.id_categoria %>
-                        </div>
-
-                        <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
-                          <div class="form-group"></div>
-
+                          <%= @producto.descripcion %><br>
+                          <td><b>Categoria:</b> <%= Categoria.find(@categoria[0].id_categoria).nombre.titleize %></td><br><br>
                           <%= link_to 'Atrás', productos_path, class: 'btn btn-danger' %>
                         </div>
+
 
 
                       </div>

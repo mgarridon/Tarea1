@@ -19,13 +19,9 @@
         <thead>
         <tr>
           <th>Nombre</th>
-          <% if current_user %>
-          <th>Precio Compra</th>
-          <% end %>
-          <th>Precio Venta</th>
+          <th>Precio</th>
           <th>Cantidad</th>
           <th>Marca</th>
-          <th>Descripcion</th>
           <th>Carro</th>
           <% if current_user %>
           <th>Mostrar</th>
@@ -38,16 +34,12 @@
         <% @producto.each do |actual| %>
             <tr>
               <td><%= actual.nombre%></td>
-              <% if current_user %>
-              <td><%= actual.precio_compra %></td>
-              <% end %>
               <td><%= actual.precio %></td>
               <td><%= actual.cantidad %></td>
               <td><%= actual.marca %></td>
-              <td><%= actual.descripcion %></td>
               <td><%= form_tag orderes_item_path do %>
                   <%= hidden_field_tag :producto_id, actual.id %>
-                  <%= number_field_tag :cantidad, 1 %>
+                  <%= number_field_tag :cantidad, nil %>
                   <%= submit_tag "Agregar al Carro"%>
                 <% end %>
               </td>

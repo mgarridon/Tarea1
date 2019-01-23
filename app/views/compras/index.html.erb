@@ -11,33 +11,24 @@
       <table id="example1" class="table table-bordered table-striped">
         <thead>
         <tr>
+          <th>ID</th>
           <th>Fecha</th>
-          <th>Cantidad</th>
-          <th>Sub Total</th>
-          <th>Total</th>
           <th>Proveedor</th>
-          <th>Producto</th>
+          <th>Nombre Empresa</th>
           <th>Mostrar</th>
-          <th>Editar</th>
-          <th>Borrar</th>
         </tr>
         </thead>
         <tbody>
-        <% @compra.each do |actual| %>
-            <tr>
-              <td><%= actual.fecha %></td>
-              <td><%= actual.cantidad %></td>
-              <td><%= actual.subtotal %></td>
-              <td><%= actual.total %></td>
-              <% proveedor = @proveedores.find(actual.id_proveedor.to_i) %>
-              <td><%= proveedor.nombre_empresa %></td>
-              <td></td>
-              <td><%= link_to '<i class="glyphicon glyphicon-book"></i>'.html_safe,  compra_path(actual), class: 'btn btn-success' %></td>
-              <td><%= link_to '<i class="glyphicon glyphicon-pencil"></i>'.html_safe,  editar_compra_path(actual), class: 'btn btn-info' %></td>
-              <td><%= link_to '<i class="glyphicon glyphicon-trash"></i>'.html_safe, compras_path(actual), method: :delete, data: { confirm: '¿Está seguro?' }, class: 'btn btn-danger' %></td>
-
-            </tr>
-        <%end%>
+        <%@compra.each do |compra| %>
+          <tr>
+            <td><%= compra.id %></td>
+            <td><%= compra.fecha.strftime('%d-%m-%Y') %></td>
+            <% proveedor = @proveedores.find(compra.id_proveedor.to_i) %>
+            <td><%= proveedor.rut %></td>
+            <td><%= proveedor.nombre_empresa %></td>
+            <td><%= link_to '<i class="glyphicon glyphicon-book"></i>'.html_safe,  compra_path(compra), class: 'btn btn-success' %></td>
+          </tr>
+        <% end %>
         </tbody>
         <tfoot>
         </tfoot>
@@ -58,13 +49,13 @@
 
 <script>
 
-$(document).ready(function() {
-  $('#example1').DataTable({
-    "language": {
-      "url": "//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json"
-    }
-  });
-});
+    $(document).ready(function() {
+        $('#example1').DataTable({
+            "language": {
+                "url": "//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json"
+            }
+        });
+    });
 
     $(function () {
         $('#example1').DataTable()
