@@ -2,7 +2,7 @@
 <html lang="es">
 
 <head>
-  <title>Boleta</title>
+  <title>Comprobante</title>
   <meta charset="utf-8">
   <style>
     * {
@@ -176,19 +176,19 @@
 
   <div class="wrapper">
     <div class="contacts">
-      <h1 class="box-title"><b>Boleta Venta</b></h1>
+      <h1 class="box-title"><b>Comprobante Compra</b></h1>
       <ul>
-        <h1 class="box-title"><b>Cliente(a): <%= Cliente.find(@cliente[0].id_cliente).rut.titleize %></b></h1>
-        <h1 class="box-title"><b>Fecha: <%=@venta.fecha.strftime('%d-%m-%Y')%></b></h1>
-        <td><b>Nombre: <%= Cliente.find(@cliente[0].id_cliente).nombre.titleize %></b></td><br>
-        <td><b>Apellido: <%= Cliente.find(@cliente[0].id_cliente).apellido.titleize %></b></td><br>
-        <td><b>Teléfono: <%= Cliente.find(@cliente[0].id_cliente).telefono %></b></td><br>
-        <td><b>Dirección: <%= Cliente.find(@cliente[0].id_cliente).direccion.titleize %></b></td>
+        <h1 class="box-title"><b>Proveedor(a): <%= Proveedor.find(@proveedor[0].id_proveedor).rut.titleize %></b></h1>
+        <h1 class="box-title"><b>Fecha: <%=@compra.fecha.strftime('%d-%m-%Y')%></b></h1>
+        <td><b>Nombre: <%= Proveedor.find(@proveedor[0].id_proveedor).nombre.titleize %></b></td><br>
+        <td><b>Apellido: <%= Proveedor.find(@proveedor[0].id_proveedor).apellido.titleize %></b></td><br>
+        <td><b>Teléfono: <%= Proveedor.find(@proveedor[0].id_proveedor).telefono %></b></td><br>
+        <td><b>Dirección: <%= Proveedor.find(@proveedor[0].id_proveedor).direccion.titleize %></b></td>
       </ul>
     </div><br>
 
     <div class="form">
-      <h3>Detalle de la Venta</h3>
+      <h3>Detalle de la Compra</h3>
       <form action="">
 
           <table>
@@ -201,13 +201,13 @@
             </tr>
             </thead>
             <tbody>
-            <%@descripcionVenta.each do |venta| %>
+            <%@descripcionCompra.each do |compra| %>
               <tr class="odd">
-                <td scope="row"><%=@productos.find(venta.id_producto).nombre.capitalize %></td>
-                <td><%=venta.cantidad  %></td>
-                <td>$<%=venta.precio_act %></td>
-                <td>$<%=(venta.cantidad).to_i * (venta.precio_act).to_i %></td>
-                <% @CostoTotal = @CostoTotal + ((venta.cantidad).to_i * (venta.precio_act).to_i) %>
+                <td scope="row"><%=@productos.find(compra.id_producto).nombre.capitalize %></td>
+                <td><%=compra.cantidad  %></td>
+                <td>$<%=compra.precio_act %></td>
+                <td>$<%=(compra.cantidad).to_i * (compra.precio_act).to_i %></td>
+                <% @CostoTotal = @CostoTotal + ((compra.cantidad).to_i * (compra.precio_act).to_i) %>
               </tr>
             <%end %>
             </tbody>

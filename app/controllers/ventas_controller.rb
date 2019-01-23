@@ -14,7 +14,6 @@ class VentasController < ApplicationController
   end
   def crear
     @clientes = Cliente.all
-    @empleados = Empleado.all
     @productos = Producto.all
     @venta = Venta.new(venta_params)
     fecha_actual = DateTime.now
@@ -61,7 +60,6 @@ class VentasController < ApplicationController
   # Actualizar/Editar
   def editar
     @clientes = Cliente.all
-    @empleados = Empleado.all
     @productos = Producto.all
   end
   def update

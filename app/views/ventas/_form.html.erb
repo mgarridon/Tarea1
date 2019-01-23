@@ -48,6 +48,7 @@
                           <div class="form-group"></div>
                           <label for=categoria>Cliente</label>
                           <%= f.collection_select :id_cliente, Cliente.select("clientes.rut, clientes.id"), :id, :rut, {:include_blank => true}, {:class => 'form-control'} %>
+                          <%= f.link_to_add "Agregar Producto", :carritos, :class => 'btn btn-default btn-sm', "data-target" => "#carrito", :onclick => "enableBtn()" %>
                         </div>
 
                       <div class="col-md-12">
@@ -77,7 +78,6 @@
                           </tbody>
                         </table>
                         <p>
-                          <%= f.link_to_add "Agregar Producto", :carritos, :class => 'btn btn-default btn-sm', "data-target" => "#carrito", :onclick => "enableBtn()" %>
                         </p>
                         <br>
                         <div class="row">

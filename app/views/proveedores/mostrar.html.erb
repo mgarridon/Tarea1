@@ -1,6 +1,7 @@
 <div class="box">
   <div class="box-header">
-    <h1 class="box-title">Mostrar Proveedor</h1>
+    <h1 class="box-title"><b>Proveedor: <%= @proveedor.rut %></b></h1><br><br>
+    <h1 class="box-title"><b>Nombre Empresa: <%= @proveedor.nombre_empresa%></b></h1>
     <div class="right_col" role="main">
       <div class="row">
         <div class="row">
@@ -18,48 +19,27 @@
 
                     <div class="container">
                       <div class="row">
-                        <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
-                          <div class="form-group"></div>
-                          <label for=id>ID : </label>
-                          <%= @proveedor.id %>
-                        </div>
-                        <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
-                          <div class="form-group"></div>
-                          <label for=nombre>Nombre : </label>
-                          <%= @proveedor.nombre %>
-                        </div>
-                        <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
-                          <div class="form-group"></div>
-                          <label for=apellido>Apellido : </label>
-                          <%= @proveedor.apellido %>
-                        </div>
-                        <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
-                          <div class="form-group"></div>
-                          <label for=direccion>Direccion : </label>
-                          <%= @proveedor.direccion %>
-                        </div>
-                        <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
-                          <div class="form-group"></div>
-                          <label for=telefono>Telefono : </label>
-                          <%= @proveedor.telefono %>
-                        </div>
-                        <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
-                          <div class="form-group"></div>
-                          <label for=celular>Celular : </label>
-                          <%= @proveedor.celular %>
-                        </div>
-                        <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
-                          <div class="form-group"></div>
-                          <label for=apellidomate>Nombre Empresa : </label>
-                          <%= @proveedor.nombre_empresa %>
-                        </div>
 
-                        <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
-                          <div class="form-group"></div>
-
-                          <%= link_to 'Atrás', proveedores_path , class:'btn btn-danger' %>
-                        </div>
-
+                        <p>
+                        <ul>
+                          <td><b>ID:  <%= @proveedor.id %></b></td>
+                          <br>
+                          <td><b>Nombre: <%= @proveedor.nombre %></b></td>
+                          <br>
+                          <td><b>Apellido: <%= @proveedor.apellido %></b></td>
+                          <br>
+                          <td><b>Dirección: <%= @proveedor.direccion %></b>
+                            <br>
+                          <td><b>Teléfono: <%= @proveedor.telefono %></b>
+                            <br>
+                          <td><b>Celular: <%= @proveedor.celular %></b>
+                            <br>
+                          <br><br>
+                          </td>
+                          <%= link_to 'Atrás', proveedores_path, class: 'btn btn-danger' %>
+                        </ul>
+                        </p>
+                        
 
 
 

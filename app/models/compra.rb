@@ -1,7 +1,7 @@
 class Compra < ApplicationRecord
 
-  has_many :carritos
-  accepts_nested_attributes_for :carritos
+  has_many :carrito2s
+  accepts_nested_attributes_for :carrito2s
 
   validates_presence_of :id_proveedor, message: " No Puede Estar En Blanco"
   validate :Validar_fecha

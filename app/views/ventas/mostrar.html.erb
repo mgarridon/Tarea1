@@ -1,6 +1,7 @@
 <div class="box">
   <div class="box-header">
-    <h1 class="box-title"><b>Cliente(a): <%= Cliente.find(@cliente[0].id_cliente).rut.titleize %></b></h1>
+    <h1 class="box-title"><b>Cliente(a): <%= Cliente.find(@cliente[0].id_cliente).rut.titleize %></b></h1><br>
+    <h1 class="box-title"><b>Fecha: <%=@venta.fecha.strftime('%d-%m-%Y')%></b></h1>
     <div class="right_col" role="main">
       <div class="row">
         <div class="row">

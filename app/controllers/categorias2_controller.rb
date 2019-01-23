@@ -29,6 +29,9 @@ class Categorias2Controller < ApplicationController
 
   # Mostrar
   def mostrar
+    @tipo = Categoria.find(params[:id])
+    @productos = Producto.select("productos.nombre").where("productos.id_categoria = (?) ", Categoria.select("categorias.id").where("categorias.id='"+params[:id]+"'"))
+    @cantidad =  @productos.length.to_s
   end
   # Actualizar/Editar
   def editar

@@ -23,7 +23,7 @@ class ComprasController < ApplicationController
       # Captura del id de la compra recien hecha
       @compra_recien_hecha = Compra.select("id").where("fecha = ?", fecha_actual)
       #Captura de los productos asociados a la compra recien hecha
-      @productos_comprados = Carrito.select("id_producto, cantidad, precio_act, id").where("compra_id = ?", @compra_recien_hecha[0].id)
+      @productos_comprados = Carrito2.select("id_producto, cantidad, precio_act, id").where("compra_id = ?", @compra_recien_hecha[0].id)
       #Actualizacion de stock para cada producto seleccionado
       @productos_comprados.each do |producto|
         #Captura del stock actual del producto
@@ -49,12 +49,12 @@ class ComprasController < ApplicationController
   def mostrar
     @id_compra = params[:id]
     @proveedor = Compra.select("id_proveedor").where("id = ?",@id_compra)
-    @descripcionCompra = Carrito.select("id_producto, cantidad, precio_act").where("compra_id = ?", @id_compra)
+    @descripcionCompra = Carrito2.select("id_producto, cantidad, precio_act").where("compra_id = ?", @id_compra)
     @productos = Producto.select("id, nombre")
     @CostoTotal = 0
     respond_to do |format|
       format.html
-      format.pdf {render template: 'compras/boleta', pdf: 'Boleta_de_Compra ', page_size: 'A4', orientation: 'Landscape'}
+      format.pdf {render template: 'compras/comprobante', pdf: 'Comprobante_de_Compra ', page_size: 'A4', orientation: 'Landscape'}
     end
   end
   # Actualizar/Editar
@@ -92,7 +92,7 @@ class ComprasController < ApplicationController
   end
   # Establecer Parametros
   def compra_params
-    params.require(:compra).permit(:id_proveedor, :fecha, carritos_attributes: [:id ,:id_producto, :cantidad, :precio_act])
+    params.require(:compra).permit(:id_proveedor, :fecha, carrito2s_attributes: [:id ,:id_producto, :cantidad, :precio_act])
   end
 
 end

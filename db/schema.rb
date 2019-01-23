@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190123044443) do
+ActiveRecord::Schema.define(version: 20190123114949) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "carrito2s", force: :cascade do |t|
+    t.integer "cantidad"
+    t.integer "precio_act"
+    t.integer "id_producto"
+    t.integer "compra_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "carritos", force: :cascade do |t|
     t.integer "cantidad"
@@ -22,7 +31,6 @@ ActiveRecord::Schema.define(version: 20190123044443) do
     t.integer "venta_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "compra_id"
   end
 
   create_table "categorias", force: :cascade do |t|
@@ -43,25 +51,10 @@ ActiveRecord::Schema.define(version: 20190123044443) do
   end
 
   create_table "compras", force: :cascade do |t|
-    t.integer "cantidad"
-    t.integer "subtotal"
-    t.integer "total"
     t.integer "id_proveedor"
-    t.integer "id_producto"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.datetime "fecha"
-  end
-
-  create_table "empleados", force: :cascade do |t|
-    t.string "rut"
-    t.string "nombre"
-    t.string "apellido"
-    t.integer "edad"
-    t.string "direccion"
-    t.integer "telefono"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "orderes", force: :cascade do |t|
@@ -129,26 +122,19 @@ ActiveRecord::Schema.define(version: 20190123044443) do
   end
 
   create_table "ventas", force: :cascade do |t|
-    t.integer "cantidad"
-    t.integer "subtotal"
-    t.integer "total"
     t.integer "id_cliente"
-    t.integer "id_empleado"
-    t.integer "id_producto"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.datetime "fecha"
   end
 
-  add_foreign_key "carritos", "compras"
+  add_foreign_key "carrito2s", "compras"
+  add_foreign_key "carrito2s", "productos", column: "id_producto"
   add_foreign_key "carritos", "productos", column: "id_producto"
   add_foreign_key "carritos", "ventas"
-  add_foreign_key "compras", "productos", column: "id_producto"
   add_foreign_key "compras", "proveedores", column: "id_proveedor"
   add_foreign_key "orderes_item", "orderes"
   add_foreign_key "orderes_item", "productos"
   add_foreign_key "productos", "categorias", column: "id_categoria"
   add_foreign_key "ventas", "clientes", column: "id_cliente"
-  add_foreign_key "ventas", "empleados", column: "id_empleado"
-  add_foreign_key "ventas", "productos", column: "id_producto"
 end

@@ -1,6 +1,6 @@
 <div class="box">
   <div class="box-header">
-    <h1 class="box-title"><b>Cliente</b></h1>
+    <h1 class="box-title"><b>Cliente: <%= @cliente.rut %></b></h1><br><br>
     <div class="right_col" role="main">
       <div class="row">
         <div class="row">
@@ -19,20 +19,24 @@
                     <div class="container">
                       <div class="row">
 
-                        <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
-                          <div class="form-group"></div>
-                          <label for="nombre">Rut : </label>
-                          <%= @cliente.rut %><br>
-                          <label for=precio>Nombre :</label>
-                          <%= @cliente.nombre %><br>
-                          <label for=precio>Apellido:</label>
-                          <%= @cliente.apellido %><br>
-                          <label for=marca>Dirección : </label>
-                          <%= @cliente.direccion %><br>
-                          <label for=descripcion>Teléfono : </label>
-                          <%= @cliente.telefono %><br><br>
-                          <%= link_to 'Atrás', clientes_path , class:'btn btn-danger' %>
-                        </div>
+                        <p>
+                        <ul>
+                          <td><b>ID:  <%= @cliente.id %></b></td>
+                          <br>
+                          <td><b>Nombre: <%= @cliente.nombre %></b></td>
+                          <br>
+                          <td><b>Apellido: <%= @cliente.apellido %></b></td>
+                          <br>
+                          <td><b>Dirección: <%= @cliente.direccion %></b>
+                            <br>
+                          <td><b>Teléfono: <%= @cliente.telefono %></b>
+                            <br>
+                            <br><br>
+                          </td>
+                          <%= link_to 'Atrás', clientes_path, class: 'btn btn-danger' %>
+                        </ul>
+                        </p>
+
 
 
                       </div>

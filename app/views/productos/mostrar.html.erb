@@ -19,21 +19,26 @@
                     <div class="container">
                       <div class="row">
 
-                        <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
-                          <div class="form-group"></div>
-                          <label for="nombre">Nombre : </label>
-                          <%= @producto.nombre %><br>
-                          <label for=precio>Precio Compra :</label>
-                          <%= @producto.precio_compra %><br>
-                          <label for=precio>Precio Venta :</label>
-                          <%= @producto.precio %><br>
-                          <label for=marca>Marca : </label>
-                          <%= @producto.marca %><br>
-                          <label for=descripcion>Descripcion : </label>
-                          <%= @producto.descripcion %><br>
-                          <td><b>Categoria:</b> <%= Categoria.find(@categoria[0].id_categoria).nombre.titleize %></td><br><br>
+                        <p>
+                        <ul>
+                          <td><b>Nombre:  <%= @producto.nombre %></b></td>
+                          <br>
+                          <td><b>Precio Compra: <%= @producto.precio_compra %></b></td>
+                          <br>
+                          <td><b>Precio Venta: <%= @producto.precio %></b></td>
+                          <br>
+                          <td><b>Marca: <%= @producto.marca %></b>
+                          <br>
+                          <td><b>Descripcion: <%= @producto.descripcion %></b>
+                          <br>
+                          <td><b>Categoria: <%= Categoria.find(@categoria[0].id_categoria).nombre.titleize %></b></td><br><br>
+                          </td>
                           <%= link_to 'Atrás', productos_path, class: 'btn btn-danger' %>
-                        </div>
+                        </ul>
+                        </p>
+
+
+
 
 
 

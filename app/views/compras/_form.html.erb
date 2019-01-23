@@ -48,10 +48,11 @@
                         <div class="form-group"></div>
                         <label for=categoria>Proveedor</label>
                         <%= f.collection_select :id_proveedor, Proveedor.select("proveedores.rut, proveedores.id"), :id, :rut, {:include_blank => true}, {:class => 'form-control'} %>
+                        <%= f.link_to_add "Agregar Producto", :carrito2s, :class => 'btn btn-default btn-sm', "data-target" => "#carrito2", :onclick => "enableBtn()" %>
                       </div>
 
                       <div class="col-md-12">
-                        <table id="carrito" class="tab">
+                        <table id="carrito2" class="tab">
                           <thead>
                           <tr>
                             <th>Producto</th>
@@ -60,10 +61,10 @@
                           </tr>
                           </thead>
                           <tbody>
-                          <%= f.fields_for :carritos, :wrapper => false do |carrito| %>
+                          <%= f.fields_for :carrito2s, :wrapper => false do |carrito| %>
                             <tr class="fields">
                               <td>
-                                <%= carrito.collection_select :id_producto, Producto.select("productos.nombre, productos.cantidad, productos.id").where("productos.cantidad > ?", 0), :id, :nombre, {:include_blank => true}, {:class => 'form-control'} %>
+                                <%= carrito.collection_select :id_producto, Producto.select("productos.nombre, productos.cantidad, productos.id").where("productos.cantidad >= ?", 0), :id, :nombre, {:include_blank => true}, {:class => 'form-control'} %>
                               </td>
                               <td>
                                 <%= carrito.text_field :cantidad, class: "form-control", type: 'number', placeholder: "Cantidad del Producto" %>
@@ -76,13 +77,11 @@
                           <% end %>
                           </tbody>
                         </table>
-                        <p>
-                          <%= f.link_to_add "Agregar Producto", :carritos, :class => 'btn btn-default btn-sm', "data-target" => "#carrito", id: "AgregarProd" %>
                         </p>
                         <br>
                         <div class="row">
                           <div class="form-actions">
-                            <%= f.submit "Enviar", :class => 'btn btn-primary'%>
+                            <%= f.submit "Enviar", :class => 'btn btn-primary', id: "myBtn", disabled: "disabled" %>
                             <%= link_to 'Cancelar', compras_path, :class => 'btn btn-danger' %>
 
                           </div>

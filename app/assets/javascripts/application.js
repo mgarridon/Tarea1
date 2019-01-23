@@ -46,6 +46,17 @@ $(document).on('turbolinks:load', function() {
             $("#Enviar").attr("disabled", false)
         }
     });
+        $(document).on('click', '.borrar', function (event) {
+        $(this).closest('tr').remove();
+        var nFilas = $("#carrito2 tr").length;
+        if(nFilas == 1){
+            $("#Enviar").attr("disabled", true);
+        }
+        else{
+            $("#Enviar").attr("disabled", false)
+        }
+    });
+
 
     $("#AgregarProd").click(function(){
 
@@ -56,6 +67,11 @@ $(document).on('turbolinks:load', function() {
         var nFilas = $("#carrito tr").length;
         console.log(nFilas);
     });
+    $("#Contador").click(function(){
+        var nFilas = $("#carrito2 tr").length;
+        console.log(nFilas);
+    });
+
 
     $('form').on('click', '.add_fields', function(event) {
         var regexp, time;

@@ -33,11 +33,6 @@
                       </div>
                       <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
                         <div class="form-group"></div>
-                        <label for=id_empleado>Id_Empleado</label>
-                        <%= f.select :id_empleado, options_from_collection_for_select(@empleados, "id", "nombre"), {}, {class: " selectpicker form-control ", data: {live_search: 'true'}} %>
-                      </div>
-                      <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
-                        <div class="form-group"></div>
                         <label for=id_producto>Id_Producto</label>
                         <%= f.select :id_producto, options_from_collection_for_select(@productos, "id", "nombre"), {}, {class: " selectpicker form-control ", data: {live_search: 'true'}} %>
                       </div>
