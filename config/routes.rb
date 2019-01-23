@@ -166,7 +166,7 @@ match 'users/registro' => redirect('/'), via: [:get, :post]
       post 'ventas/', to: 'ventas#crear', as: 'crear_venta1'
       # Mostrar
       get 'ventas/:id', to: 'ventas#mostrar', as: 'venta1'
-      root 'welcome#index'
+      root 'productos#index'
       root 'devise/sessions#new', as: :unauthenticated_root
       match '*path' => redirect('/'), via: [:get, :post]
 
