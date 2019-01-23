@@ -27,7 +27,7 @@ class ComprasController < ApplicationController
       #Actualizacion de stock para cada producto seleccionado
       @productos_comprados.each do |producto|
         #Captura del stock actual del producto
-        @datos_productos = Producto.select("cantidad, nombre, precio").where("id = ?", producto.id_producto)
+        @datos_productos = Producto.select("cantidad, nombre, precio_compra").where("id = ?", producto.id_producto)
         #Captura de la cantidad comprada
         nuevo_stock = @datos_productos[0].cantidad.to_i + producto.cantidad
         product = Producto.find(producto.id_producto.to_i)

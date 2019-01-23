@@ -19,6 +19,6 @@ class Carrito2 < ApplicationRecord
 
   private
   def precio_act_producto
-    self.precio_act = (Producto.find(id_producto)).precio
+    self.precio_act = (Producto.find(id_producto)).precio_compra
   end
 end

@@ -9,9 +9,6 @@
   </div>
 
 
-
-
-
   <!-- /.box-header -->
   <div class="box-body">
     <div class="table-responsive">
@@ -21,7 +18,7 @@
           <th>Nombre</th>
           <th>Precio</th>
           <th>Cantidad</th>
-          <th>Marca</th>
+          <th>Categoria</th>
           <th>Carro</th>
           <% if current_user %>
           <th>Mostrar</th>
@@ -36,7 +33,8 @@
               <td><%= actual.nombre%></td>
               <td><%= actual.precio %></td>
               <td><%= actual.cantidad %></td>
-              <td><%= actual.marca %></td>
+              <% categoria = @categoria.find(actual.id_categoria.to_i) %>
+              <td><%= categoria.nombre %></td>
               <td><%= form_tag orderes_item_path do %>
                   <%= hidden_field_tag :producto_id, actual.id %>
                   <%= number_field_tag :cantidad, nil %>

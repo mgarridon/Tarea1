@@ -3,6 +3,7 @@ class ProductosController < ApplicationController
 
   def index
     @producto = Producto.all
+    @categoria = Categoria.all
   end
 
   # Crear nuevo
@@ -60,6 +61,8 @@ class ProductosController < ApplicationController
       format.html {redirect_to productos_path}
     end
   end
+
+
 
   private
   # Inicializar Producto
