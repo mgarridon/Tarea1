@@ -7,10 +7,8 @@ class Proveedor < ApplicationRecord
   validates :nombre, length: { in: 2..50 , :message => "Largo inadecuado de categoria"},  format: { with: VALID_NAME_REGEX , :message => "Formato invalido"},  presence: { message: "No Puede Estar En Blanco" }
   validates :apellido, length: { in: 2..50 , :message => "Largo inadecuado de categoria"},  format: { with: VALID_NAME_REGEX , :message => "Formato invalido"},  presence: { message: "No Puede Estar En Blanco" }
   validates_presence_of :direccion, length: { in: 2..50 , :message => "Largo inadecuado de categoria"}, message: " No Puede Estar En Blanco"
-  validates :telefono, numericality: true
-  validates :telefono, numericality: {only_integer: true}
-  validates :celular, numericality: true
-  validates :celular, numericality: {only_integer: true}
+  validates :telefono, presence: {messege: "Debe asignar un teléfono"}, numericality:{only_integer: true}, length: {in: 8..9, :message =>"Largo inadecuado"}
+  validates :celular, presence: {messege: "Debe asignar un teléfono"}, numericality:{only_integer: true}, length: {in: 8..9, :message =>"Largo inadecuado"}
   validates :nombre_empresa, length: { in: 2..50 , :message => "Largo inadecuado de categoria"},  format: { with: VALID_NAME_REGEX , :message => "Formato invalido"},  presence: { message: "No Puede Estar En Blanco" }
 
 end
