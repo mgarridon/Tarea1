@@ -19,7 +19,6 @@
           <th>Precio</th>
           <th>Cantidad</th>
           <th>Categoria</th>
-          <th>Carro</th>
           <% if current_user %>
           <th>Mostrar</th>
           <th>Editar</th>
@@ -35,12 +34,6 @@
               <td><%= actual.cantidad %></td>
               <% categoria = @categoria.find(actual.id_categoria.to_i) %>
               <td><%= categoria.nombre %></td>
-              <td><%= form_tag orderes_item_path do %>
-                  <%= hidden_field_tag :producto_id, actual.id %>
-                  <%= number_field_tag :cantidad, nil %>
-                  <%= submit_tag "Agregar al Carro"%>
-                <% end %>
-              </td>
               <% if current_user %>
               <td><%= link_to '<i class="glyphicon glyphicon-book"></i>'.html_safe,  producto_path(actual), class: 'btn btn-success' %></td>
               <td><%= link_to '<i class="glyphicon glyphicon-pencil"></i>'.html_safe,  editar_producto_path(actual), class: 'btn btn-info' %></td>

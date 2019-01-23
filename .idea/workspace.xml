@@ -6,7 +6,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9ef061fb-333d-4c8e-8c6f-102e05522765" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/app/views/layouts/_application_starter.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/layouts/_application_starter.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/productos/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/productos/index.html.erb" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -26,7 +26,16 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="_application_starter.html.erb" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ventas_controller.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/ventas_controller.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="34">
+              <caret line="25" column="36" selection-start-line="25" selection-start-column="29" selection-end-line="25" selection-end-column="36" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="_application_starter.html.erb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/layouts/_application_starter.html.erb">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="289">
@@ -44,6 +53,15 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="index.html.erb" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/views/productos/index.html.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="369">
+              <caret line="35" column="46" selection-start-line="35" selection-start-column="46" selection-end-line="35" selection-end-column="46" />
+            </state>
+          </provider>
+        </entry>
+      </file>
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
@@ -55,7 +73,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>total</find>
       <find>map</find>
       <find>sale</find>
       <find>stock</find>
@@ -78,13 +95,14 @@
       <find>venta</find>
       <find>carritos</find>
       <find>producto</find>
-      <find>Carrito</find>
       <find>categoria</find>
       <find>proveedor</find>
       <find>Filtrar</find>
       <find>cliente</find>
       <find>precio</find>
       <find>produc</find>
+      <find>Agregar</find>
+      <find>Carrito</find>
     </findStrings>
     <replaceStrings>
       <replace>productos</replace>
@@ -161,7 +179,6 @@
         <option value="$PROJECT_DIR$/app/views/clientes/mostrar.html.erb" />
         <option value="$PROJECT_DIR$/app/views/ventas/_form.html.erb" />
         <option value="$PROJECT_DIR$/app/controllers/productos_controller.rb" />
-        <option value="$PROJECT_DIR$/app/views/productos/index.html.erb" />
         <option value="$PROJECT_DIR$/app/controllers/compras_controller.rb" />
         <option value="$PROJECT_DIR$/app/models/carrito.rb" />
         <option value="$PROJECT_DIR$/app/models/carrito2.rb" />
@@ -170,6 +187,7 @@
         <option value="$PROJECT_DIR$/app/models/proveedor.rb" />
         <option value="$PROJECT_DIR$/config/routes.rb" />
         <option value="$PROJECT_DIR$/app/views/layouts/_application_starter.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/productos/index.html.erb" />
       </list>
     </option>
   </component>
@@ -445,12 +463,12 @@
       <workItem from="1547042222085" duration="16154000" />
       <workItem from="1547988691901" duration="38188000" />
       <workItem from="1548080924784" duration="44084000" />
-      <workItem from="1548181792204" duration="39376000" />
+      <workItem from="1548181792204" duration="40407000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="260323000" />
+    <option name="totallyTimeSpent" value="261354000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="24" width="1301" height="744" extended-state="6" />
@@ -641,13 +659,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/productos/index.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="35" column="39" selection-start-line="35" selection-start-column="39" selection-end-line="35" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/db/schema.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-900" />
@@ -727,13 +738,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/ventas_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1195">
-          <caret line="96" selection-start-line="96" selection-end-line="96" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/cliente.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
@@ -801,6 +805,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
           <caret line="153" column="94" selection-start-line="153" selection-start-column="94" selection-end-line="153" selection-end-column="94" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/ventas_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="25" column="36" selection-start-line="25" selection-start-column="29" selection-end-line="25" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/productos/index.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="369">
+          <caret line="35" column="46" selection-start-line="35" selection-start-column="46" selection-end-line="35" selection-end-column="46" />
         </state>
       </provider>
     </entry>
