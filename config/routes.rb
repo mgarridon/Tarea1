@@ -159,6 +159,13 @@ match 'users/registro' => redirect('/'), via: [:get, :post]
       get 'productos' , to: 'productos#index'
       get '/cart', to: 'orderes_item#index'
       resources :orderes_item, path: '/cart/items'
+      # Nuevo
+      get 'clientes/nuevo' , to: 'clientes#nuevo', as: 'nuevo_cliente1'
+      post 'clientes/', to: 'clientes#crear', as: 'crear_cliente1'
+      get 'ventas/nuevo' , to: 'ventas#nuevo', as: 'nueva_venta1'
+      post 'ventas/', to: 'ventas#crear', as: 'crear_venta1'
+      # Mostrar
+      get 'ventas/:id', to: 'ventas#mostrar', as: 'venta1'
       root 'welcome#index'
       root 'devise/sessions#new', as: :unauthenticated_root
       match '*path' => redirect('/'), via: [:get, :post]

@@ -140,7 +140,8 @@ desired effect
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">Menu Principal</li>
         <!-- Optionally, you can add icons to the links -->
-        <li><a href="../../cart"><i class="fa fa-cart-arrow-down"></i> <%=pluralize(current_cart.items_count, 'producto')%>
+        <li><a href="../../ventas/nuevo"><i class="fa fa-cart-arrow-down"></i> <span>Carro de Compras</span></a></li>
+        <li><a href="../../clientes/nuevo"><i class="fa fa-group"></i> <span>Registrate</span></a></li>
         <li class="active"><a href="../../welcome/index"><i class="fa fa-dashboard "></i> <span>Inicio</span></a></li>
         <% if current_user %>
         <li><a href="../../categorias2"><i class="fa fa-list"></i> <span>Categorias</span></a></li>
