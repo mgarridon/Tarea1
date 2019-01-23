@@ -19,16 +19,15 @@ class ComprasController < ApplicationController
     fecha_actual = DateTime.now
     @compra.fecha= fecha_actual
     if @compra.save
-      #Compra correctamente hecha
-      # Captura del id de la compra recien hecha
+
       @compra_recien_hecha = Compra.select("id").where("fecha = ?", fecha_actual)
-      #Captura de los productos asociados a la compra recien hecha
+
       @productos_comprados = Carrito2.select("id_producto, cantidad, precio_act, id").where("compra_id = ?", @compra_recien_hecha[0].id)
-      #Actualizacion de stock para cada producto seleccionado
+
       @productos_comprados.each do |producto|
-        #Captura del stock actual del producto
+
         @datos_productos = Producto.select("cantidad, nombre, precio_compra").where("id = ?", producto.id_producto)
-        #Captura de la cantidad comprada
+
         nuevo_stock = @datos_productos[0].cantidad.to_i + producto.cantidad
         product = Producto.find(producto.id_producto.to_i)
         product.update_attribute :cantidad, nuevo_stock.to_s

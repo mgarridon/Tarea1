@@ -16,7 +16,11 @@
   </div>
 <% end %>
 
+
+
 <%= nested_form_for(@venta) do |f|  %>
+
+
 
 <div class="right_col" role="main">
   <div class="row">
@@ -82,9 +86,78 @@
                         <br>
                         <div class="row">
                           <div class="form-actions">
+                            <ul>
                             <%= f.submit "Enviar", :class => 'btn btn-primary', id: "myBtn", disabled: "disabled" %>
                             <%= link_to 'Cancelar', ventas_path, :class => 'btn btn-danger' %>
+                            </ul>
+                            <!-- Main content -->
 
+                            <div class="box">
+                              <div class="box-header">
+                                <h3 class="box-title">Listado Productos</h3>
+                                </h3>
+                              </div>
+                              <!-- /.box-header -->
+                              <div class="box-body">
+                                <div class="table-responsive">
+                                  <table id="example1" class="table table-bordered table-striped">
+                                    <thead>
+                                    <tr>
+                                      <th>Nombre</th>
+                                      <th>Precio</th>
+                                      <th>Cantidad</th>
+                                      <th>Categoria</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <% @productos.each do |actual| %>
+                                      <tr>
+                                        <td><%= actual.nombre %></td>
+                                        <td><%= actual.precio %></td>
+                                        <td><%= actual.cantidad %></td>
+                                        <% categoria = @categoria.find(actual.id_categoria.to_i) %>
+                                        <td><%= categoria.nombre %></td>
+                                      </tr>
+                                    <% end %>
+                                    </tbody>
+                                    <tfoot>
+                                    </tfoot>
+                                  </table>
+                                </div>
+
+                              </div>
+                              <!-- /.box-body -->
+                            </div>
+                            <!-- /.box -->
+                          </div>
+                          <!-- /.col -->
+                        </div>
+                        <!-- /.row -->
+                        </section>
+                        <!-- /.content -->
+                      </div>
+                      <script>
+
+                          $(document).ready(function () {
+                              $('#example1').DataTable({
+                                  "language": {
+                                      "url": "//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json"
+                                  }
+                              });
+                          });
+
+                          $(function () {
+                              $('#example1').DataTable()
+                              $('#example2').DataTable({
+                                  'paging': true,
+                                  'lengthChange': false,
+                                  'searching': false,
+                                  'ordering': true,
+                                  'info': true,
+                                  'autoWidth': false
+                              })
+                          })
+                      </script>
                           </div>
                         </div>
                       </div>
@@ -110,6 +183,7 @@
 </div>
 
 <% end %>
+
 <script>
     $(document).ready(function()
     {

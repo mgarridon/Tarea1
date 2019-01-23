@@ -78,20 +78,6 @@ match 'users/registro' => redirect('/'), via: [:get, :post]
 
 
 
-      #CRUD EMPLEADOS
-      # Index
-      get 'empleados' , to: 'empleados#index', as: 'empleados'
-      # Editar
-      get 'empleados/:id/editar', to: 'empleados#editar', as: 'editar_empleado'
-      put 'empleados/:id', to: 'empleados#update'
-      patch 'empleados/:id', to: 'empleados#update', as:'update_empleado',action: :update
-      # Nuevo
-      get 'empleados/nuevo' , to: 'empleados#nuevo', as: 'nuevo_empleado'
-      post 'empleados/', to: 'empleados#crear', as: 'crear_empleado'
-      # Mostrar
-      get 'empleados/:id', to: 'empleados#mostrar', as: 'empleado'
-      # Eliminar
-      delete 'empleados.:id' , to: 'empleados#eliminar'
 
 
 
@@ -169,6 +155,7 @@ match 'users/registro' => redirect('/'), via: [:get, :post]
       root 'productos#index'
       root 'devise/sessions#new', as: :unauthenticated_root
       match '*path' => redirect('/'), via: [:get, :post]
+
 
     end
   end
